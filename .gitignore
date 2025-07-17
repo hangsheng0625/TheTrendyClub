@@ -1,0 +1,18 @@
+# Ignore Node.js dependencies
+/backend/node_modules/
+# /frontend/node_modules/
+
+# Ignore environment files
+/backend/.env
+/frontend/.env
+
+# Ignore logs
+*.log
+npm-debug.log*
+
+# Ignore build folders
+/frontend/build/
+
+# OS files
+.DS_Store
+Thumbs.db
