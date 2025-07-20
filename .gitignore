@@ -5,6 +5,7 @@
 # Ignore environment files
 /backend/.env
 /frontend/.env
+/admin/.env
 
 # Ignore logs
 *.log
