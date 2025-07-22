@@ -1,6 +1,6 @@
-# Forever E-Commerce Platform
+# Wearify E-Commerce Platform
 
-Forever is a full-stack e-commerce web application featuring a customer-facing storefront and an admin dashboard for product and order management. The project is built with a modern tech stack including React, Node.js, Express, and MongoDB.
+Wearify is a full-stack e-commerce web application featuring a customer-facing storefront and an admin dashboard for product and order management. The project is built with a modern tech stack including React, Node.js, Express, and MongoDB.
 
 ## Project Structure
 
@@ -101,13 +101,7 @@ npm run dev
 ## Tech Stack
 
 - **Frontend:** React, Vite, Tailwind CSS, Axios, React Router, React Toastify
-- **Backend:** Node.js, Express.js, MongoDB, Mongoose, JWT, Multer, Cloudinary, Stripe, Razorpay
+- **Backend:** Node.js, Express.js, MongoDB, Mongoose, JWT, Multer, Cloudinary, Tng, FPX (online banking)
 - **Admin:** React, Vite, Tailwind CSS
 
-## License
 
-This project is for educational purposes.
-
----
-
-**Developed by GreatStack-inspired team.**
