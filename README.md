@@ -1,6 +1,6 @@
-# Wearify E-Commerce Platform
+# TheTrendyClub E-Commerce Platform
 
-Wearify is a full-stack e-commerce web application featuring a customer-facing storefront and an admin dashboard for product and order management. The project is built with a modern tech stack including React, Node.js, Express, and MongoDB.
+TheTrendyClub is a full-stack e-commerce web application featuring a customer-facing storefront and an admin dashboard for product and order management. The project is built with a modern tech stack including React, Node.js, Express, and MongoDB.
 
 ## Project Structure
 
