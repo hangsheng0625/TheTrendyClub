@@ -5,6 +5,7 @@ import { assets } from "../assets/assets";
 import { ShopContext } from "../context/ShopContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+// import orderModel from "../../../backend/models/orderModel.js";
 
 const PlaceOrder = () => {
   const [method, setMethod] = useState("cod");
@@ -36,6 +37,39 @@ const PlaceOrder = () => {
 
     setFormData((data) => ({ ...data, [name]: value }));
   };
+
+  // const initPay = (order) => {
+  //   const options = {
+  //     key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+  //     amount: order.amout,
+  //     currency: order.currency,
+  //     name: "Order Payment",
+  //     description: "Order Payment",
+  //     order_id: order.id,
+  //     receipt: order.receipt,
+  //     handler: async (response) => {
+  //       console.log(response)
+  //       try {
+  //         const {data} = await axios.post(
+  //           backendUrl + "/api/order/verifyRazorpay",
+  //           response,
+  //           { headers: { token } }
+  //         );
+  //         if (data.success) {
+  //           setCartItems({});
+  //           navigate("/orders");
+  //         }
+
+  //       } catch (error) {
+  //         console.log(error);
+  //         toast.error(error.message);
+          
+  //       }
+  //     }
+  //   }
+  //   const razorpay = new window.Razorpay(options);
+  //   razorpay.open();
+  // }
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
@@ -76,6 +110,31 @@ const PlaceOrder = () => {
             toast.error(response.data.message);
           }
           break;
+        
+        case "stripe":
+          const stripeResponse = await axios.post(
+            backendUrl + "/api/order/stripe",
+            orderData,
+            { headers: { token } }
+          );
+          if (stripeResponse.data.success) {
+            const { session_url } = stripeResponse.data;
+            window.location.replace(session_url);
+          } else {
+            toast.error(stripeResponse.data.message);
+          }
+          break;
+
+        // case "razorpay":
+        //   const razorpayResponse = await axios.post(
+        //     backendUrl + "/api/order/razorpay",
+        //     orderData,
+        //     { headers: { token } }
+        //   );
+        //   if (razorpayResponse.data.success) {
+        //     initPay(razorpayResponse.data.order);
+        //   }
+
 
         default:
           break;
@@ -210,7 +269,7 @@ const PlaceOrder = () => {
               <img className="h-5 mx-4" src={assets.stripe_logo} alt="" />
             </div>
 
-            <div
+            {/* <div
               onClick={() => setMethod("razorpay")}
               className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
             >
@@ -220,7 +279,7 @@ const PlaceOrder = () => {
                 }`}
               ></p>
               <img className="h-5 mx-4" src={assets.razorpay_logo} alt="" />
-            </div>
+            </div> */}
 
             <div
               onClick={() => setMethod("cod")}
