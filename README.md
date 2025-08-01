@@ -266,34 +266,6 @@ npm run dev
 npm run build
 npm run preview  # Preview production build
 
-## 🌐 Usage & Access
-
-**Features Available:**
-- Browse products by categories
-- Search and filter functionality
-- Add products to cart and wishlist
-- User registration and login
-- Secure checkout process
-- Order tracking and history
-
-**Admin Features:**
-- Product management (add, edit, delete)
-- Order processing and status updates
-- User management and analytics
-- Inventory tracking
-
-**API Documentation:**
-- Health Check: `GET /api/health`
-- Products: `GET /api/products`
-- Users: `POST /api/users/register`
-- Orders: `GET /api/orders` (requires authentication)
-
-### Performance Optimization
-- Images are optimized through Cloudinary
-- Code splitting implemented with React.lazy()
-- MongoDB queries are indexed for optimal performance
-- Caching strategies implemented for static assets
-
 ## 🛠️ Tech Stack
 
 ### 🎨 Frontend Technologies
