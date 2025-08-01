@@ -28,97 +28,168 @@ const Orders = ({ token }) => {
 
   const statusHandler = async (event, orderId) => {
     try {
-      const response = await axios.post(backendUrl + '/api/order/status', {orderId, status:event.target.value}, {headers:{token}})
-      if (response.data.success){
-        await fetchAllOrders()
+      const response = await axios.post(
+        backendUrl + '/api/order/status', 
+        { orderId, status: event.target.value }, 
+        { headers: { token } }
+      );
+      if (response.data.success) {
+        await fetchAllOrders();
       }
     } catch (error) {
       console.log(error);
-      toast.error(response.data.message)
-      
+      toast.error(error.response?.data?.message || error.message);
     }
-  }
-
-  
+  };
 
   useEffect(() => {
     fetchAllOrders();
   }, [token]);
 
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'Order Placed': return 'bg-blue-100 text-blue-800';
+      case 'Packing': return 'bg-yellow-100 text-yellow-800';
+      case 'Shipped': return 'bg-purple-100 text-purple-800';
+      case 'Out for delivery': return 'bg-orange-100 text-orange-800';
+      case 'Delivered': return 'bg-green-100 text-green-800';
+      default: return 'bg-gray-100 text-gray-800';
+    }
+  };
+
   return (
-    <div className="p-4">
-      <h3 className="text-xl font-semibold mb-4">Orders</h3>
-      <div className="space-y-6">
-        {orders.map((order, index) => (
-          <div
-            key={index}
-            className="relative border p-4 rounded-lg shadow-md bg-white"
-          >
-            {/* Status Dropdown - Top Right */}
-            <div className="absolute top-4 right-4">
-              <select onChange={(event)=>statusHandler(event, order._id)} className="border px-2 py-1 rounded text-sm">
-                <option value="Order Placed">Order Placed</option>
-                <option value="Packing">Packing</option>
-                <option value="Shipped">Shipped</option>
-                <option value="Out for delivery">Out for delivery</option>
-                <option value="Delivered">Delivered</option>
-              </select>
-            </div>
+    <div className="admin-container p-8 max-w-7xl mx-auto">
+      <div className="mb-8">
+        <h1 className="text-title text-3xl mb-2">Order Management</h1>
+        <p className="text-body-secondary">Manage and track all customer orders from here.</p>
+      </div>
 
-            <div className="flex items-start gap-4">
-              <img
-                src={assets.parcel_icon}
-                alt="Parcel"
-                className="w-10 h-10 mt-1"
-              />
-
-              <div className="text-sm space-y-1">
-                <p>
-                  <strong>Items:</strong> {order.items.length}
-                </p>
-                <div className="pl-4">
-                  {order.items.map((item, idx) => (
-                    <p key={idx}>
-                      {item.name} x {item.quantity}{" "}
-                      <span className="text-gray-500">({item.size})</span>
-                      {idx !== order.items.length - 1 && ","}
+      {orders.length === 0 ? (
+        <div className="admin-card p-12 text-center">
+          <img src={assets.parcel_icon} alt="No orders" className="w-16 h-16 mx-auto mb-4 opacity-50" />
+          <h3 className="text-subtitle text-xl mb-2">No Orders Yet</h3>
+          <p className="text-body-secondary">Orders will appear here once customers start placing them.</p>
+        </div>
+      ) : (
+        <div className="space-y-6">
+          {orders.map((order, index) => (
+            <div key={index} className="admin-card p-6 hover:shadow-lg transition-shadow">
+              {/* Order Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 pb-4 border-b border-gray-100">
+                <div className="flex items-center gap-3 mb-3 sm:mb-0">
+                  <img src={assets.parcel_icon} alt="Order" className="w-8 h-8" />
+                  <div>
+                    <h3 className="text-subtitle text-lg">Order #{order._id.slice(-8)}</h3>
+                    <p className="text-body-secondary text-sm">
+                      {new Date(order.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                      })}
                     </p>
-                  ))}
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-4">
+                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(order.status)}`}>
+                    {order.status}
+                  </span>
+                  <select 
+                    onChange={(event) => statusHandler(event, order._id)} 
+                    value={order.status}
+                    className="border border-gray-300 px-3 py-2 rounded-lg text-sm focus:border-gray-500 focus:ring-2 focus:ring-gray-200"
+                  >
+                    <option value="Order Placed">Order Placed</option>
+                    <option value="Packing">Packing</option>
+                    <option value="Shipped">Shipped</option>
+                    <option value="Out for delivery">Out for delivery</option>
+                    <option value="Delivered">Delivered</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Product Items */}
+                <div className="lg:col-span-2">
+                  <h4 className="text-body-primary font-medium mb-4">Ordered Items ({order.items.length})</h4>
+                  <div className="space-y-3">
+                    {order.items.map((item, idx) => (
+                      <div key={idx} className="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
+                        <div className="w-16 h-16 bg-white rounded-lg overflow-hidden border border-gray-200">
+                          {item.image && item.image.length > 0 ? (
+                            <img 
+                              src={item.image[0]} 
+                              alt={item.name} 
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                e.target.src = assets.upload_area;
+                              }}
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                              <span className="text-gray-400 text-xs">No Image</span>
+                            </div>
+                          )}
+                        </div>
+                        
+                        <div className="flex-1">
+                          <h5 className="text-body-primary font-medium">{item.name}</h5>
+                          <div className="flex items-center gap-4 text-sm text-body-secondary mt-1">
+                            <span>Size: {item.size}</span>
+                            <span>Qty: {item.quantity}</span>
+                            <span className="font-medium">{currency}{item.price}</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <p>
-                  <strong>Name:</strong> {order.address.firstName}{" "}
-                  {order.address.lastName}
-                </p>
-                <p>
-                  <strong>Address:</strong> {order.address.street},{" "}
-                  {order.address.city}, {order.address.state},{" "}
-                  {order.address.country}, {order.address.zipcode}
-                </p>
-                <p>
-                  <strong>Phone:</strong> {order.address.phone}
-                </p>
-                <p>
-                  <strong>Method:</strong> {order.paymentMethod}
-                </p>
-                <p>
-                  <strong>Payment:</strong>{" "}
-                  {order.payment ? "Done" : "Pending"}
-                </p>
-                <p>
-                  <strong>Date:</strong>{" "}
-                  {new Date(order.date).toLocaleDateString()}
-                </p>
-                <p>
-                  <strong>
-                    {currency} {order.amount}
-                  </strong>
-                </p>
+                {/* Customer & Order Details */}
+                <div className="space-y-6">
+                  {/* Customer Info */}
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h4 className="text-body-primary font-medium mb-3">Customer Details</h4>
+                    <div className="space-y-2 text-sm">
+                      <p><span className="font-medium">Name:</span> {order.address.firstName} {order.address.lastName}</p>
+                      <p><span className="font-medium">Phone:</span> {order.address.phone}</p>
+                      <p><span className="font-medium">Address:</span></p>
+                      <p className="text-body-secondary pl-4">
+                        {order.address.street}<br />
+                        {order.address.city}, {order.address.state}<br />
+                        {order.address.country} {order.address.zipcode}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Order Summary */}
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h4 className="text-body-primary font-medium mb-3">Order Summary</h4>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span>Payment Method:</span>
+                        <span className="font-medium">{order.paymentMethod}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Payment Status:</span>
+                        <span className={`font-medium ${order.payment ? 'text-green-600' : 'text-red-600'}`}>
+                          {order.payment ? "Paid" : "Pending"}
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center pt-2 border-t border-gray-200">
+                        <span className="font-medium">Total Amount:</span>
+                        <span className="text-lg font-bold text-body-primary">{currency}{order.amount}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

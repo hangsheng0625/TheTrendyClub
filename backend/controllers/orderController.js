@@ -1,5 +1,6 @@
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
+import productModel from "../models/productModel.js";
 import Stripe from "stripe";
 import Razorpay from "razorpay";
 
@@ -179,7 +180,40 @@ const verifyRazorpayPayment = async (req, res) => {
 const allOrders = async (req, res) => {
     try {
         const orders = await orderModel.find({});
-        res.json({ success: true, orders });
+        
+        // Populate product details for each order
+        const ordersWithProductDetails = await Promise.all(
+            orders.map(async (order) => {
+                const itemsWithDetails = await Promise.all(
+                    order.items.map(async (item) => {
+                        try {
+                            const product = await productModel.findById(item._id);
+                            return {
+                                ...item,
+                                name: product?.name || 'Product not found',
+                                image: product?.image || [],
+                                price: product?.price || 0
+                            };
+                        } catch (error) {
+                            console.log(`Error fetching product ${item._id}:`, error);
+                            return {
+                                ...item,
+                                name: 'Product not found',
+                                image: [],
+                                price: 0
+                            };
+                        }
+                    })
+                );
+                
+                return {
+                    ...order.toObject(),
+                    items: itemsWithDetails
+                };
+            })
+        );
+        
+        res.json({ success: true, orders: ordersWithProductDetails });
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: error.message });
@@ -191,7 +225,40 @@ const userOrders = async (req, res) => {
     try {
         const { userId } = req.body;
         const orders = await orderModel.find({ userId });
-        res.json({ success: true, orders });
+        
+        // Populate product details for each order
+        const ordersWithProductDetails = await Promise.all(
+            orders.map(async (order) => {
+                const itemsWithDetails = await Promise.all(
+                    order.items.map(async (item) => {
+                        try {
+                            const product = await productModel.findById(item._id);
+                            return {
+                                ...item,
+                                name: product?.name || 'Product not found',
+                                image: product?.image || [],
+                                price: product?.price || 0
+                            };
+                        } catch (error) {
+                            console.log(`Error fetching product ${item._id}:`, error);
+                            return {
+                                ...item,
+                                name: 'Product not found',
+                                image: [],
+                                price: 0
+                            };
+                        }
+                    })
+                );
+                
+                return {
+                    ...order.toObject(),
+                    items: itemsWithDetails
+                };
+            })
+        );
+        
+        res.json({ success: true, orders: ordersWithProductDetails });
     } catch (error) {
         console.log(error);
         res.json({ success: false, message: error.message });

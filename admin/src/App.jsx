@@ -21,23 +21,22 @@ const App = () => {
 
 
   return (
-    <div className='bg-gray-50 min-h-screen'>
+    <div className='min-h-screen' style={{background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 25%, #e9ecef 50%, #dee2e6 75%, #adb5bd 100%)'}}>
       <ToastContainer/>
       {token === "" 
       ? <Login setToken={setToken} /> 
       : <>
       <Navbar setToken={setToken}/>
-      <hr />
-      <div className='flex w-full '>
+      <hr className="border-gray-200" />
+      <div className='flex w-full'>
         <Sidebar/>
-        <div className='w-[70%] mx-auto ml-[max(5vw, 25px)] my-8 text-gray-600 text-base'>
+        <div className='w-[70%] mx-auto ml-[max(5vw, 25px)] my-8 text-body-primary'>
           <Routes>
             <Route path='/add' element={<Add token={token}></Add>}/>
             <Route path='/list' element={<List token={token}></List>}/>
             <Route path='/orders' element={<Orders token={token}></Orders>}/>
           </Routes>
         </div>
-
       </div>
       </>
       }
