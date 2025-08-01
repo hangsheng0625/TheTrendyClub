@@ -3,6 +3,7 @@ import { ShopContext } from "../context/ShopContext";
 import Title from "./Title";
 import ProductItem from "./ProductItem";
 
+
 const LatestCollection = () => {
   const { products } = useContext(ShopContext);
   const [latestProducts, setLatestProducts] = useState([]);
@@ -10,13 +11,12 @@ const LatestCollection = () => {
 
   useEffect(() => {
     setLatestProducts(products.slice(0, 10));
-    // Trigger animation on mount
     const timer = setTimeout(() => setIsVisible(true), 100);
     return () => clearTimeout(timer);
   }, [products]);
 
   return (
-    <div className="my-20 px-4 sm:px-0">
+    <div className="my-20 px-4 sm:px-0 bg-gradient-to-br from-amber-50 via-white to-yellow-50 py-16 rounded-3xl">
       {/* Section Header */}
       <div
         className={`text-center py-12 animate-fadeInUp ${
@@ -26,25 +26,22 @@ const LatestCollection = () => {
         <div className="mb-6">
           <Title text1={"LATEST"} text2={"COLLECTIONS"} />
         </div>
-        <p className="max-w-2xl mx-auto text-lg text-gray-600 leading-relaxed">
-          Discover our newest arrivals, carefully curated to bring you the
-          latest trends in fashion. Each piece is selected for its unique style
-          and exceptional quality.
+        <p className="max-w-2xl mx-auto text-lg text-amber-900 leading-relaxed mb-8">
+          Discover our newest arrivals, carefully curated to bring you the latest trends in fashion. Each piece is selected for its unique style and exceptional quality.
         </p>
-
-        {/* Decorative elements */}
-        <div className="flex justify-center mt-8 gap-2">
+        {/* Animated loading dots */}
+        <div className="flex justify-center items-center gap-2 mb-8">
           <div
-            className="w-2 h-2 bg-indigo-500 rounded-full animate-bounce"
+            className="w-2 h-2 bg-amber-700 rounded-full animate-bounce"
             style={{ animationDelay: "0s" }}
           ></div>
           <div
-            className="w-2 h-2 bg-purple-500 rounded-full animate-bounce"
-            style={{ animationDelay: "0.1s" }}
+            className="w-2 h-2 bg-amber-900 rounded-full animate-bounce"
+            style={{ animationDelay: "0.2s" }}
           ></div>
           <div
-            className="w-2 h-2 bg-pink-500 rounded-full animate-bounce"
-            style={{ animationDelay: "0.2s" }}
+            className="w-2 h-2 bg-amber-700 rounded-full animate-bounce"
+            style={{ animationDelay: "0.4s" }}
           ></div>
         </div>
       </div>
@@ -52,7 +49,7 @@ const LatestCollection = () => {
       {/* Products Grid */}
       <div
         className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 lg:gap-8 transition-all duration-1000 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
         {latestProducts.map((item, index) => (
@@ -71,13 +68,11 @@ const LatestCollection = () => {
         ))}
       </div>
 
-      {/* Call to Action */}
-      <div
-        className={`text-center mt-16 animate-fadeInUp ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <button className="btn-primary mx-auto">View All Collections</button>
+      {/* View All Button */}
+      <div className="text-center mt-12">
+        <button className="bg-amber-900 hover:bg-amber-800 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          View All Collections
+        </button>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ const BestSeller = () => {
   }, [products]);
 
   return (
-    <div className="my-20 px-4 sm:px-0 bg-gradient-to-br from-gray-50 via-white to-indigo-50 py-16 rounded-3xl">
+    <div className="my-20 px-4 sm:px-0 bg-gradient-to-br from-amber-50 via-white to-yellow-50 py-16 rounded-3xl">
       {/* Section Header with enhanced styling */}
       <div
         className={`text-center py-12 animate-fadeInUp ${
@@ -28,24 +28,23 @@ const BestSeller = () => {
         <div className="mb-6">
           <Title text1={"BEST"} text2={"SELLERS"} />
         </div>
-        <p className="max-w-2xl mx-auto text-lg text-gray-600 leading-relaxed mb-8">
-          Our customers' favorites! These trending pieces are flying off the
-          shelves. Don't miss out on what everyone's talking about.
+        <p className="max-w-2xl mx-auto text-lg text-amber-900 leading-relaxed mb-8">
+          Discover the pieces that define style and excellence. These customer favorites showcase our commitment to quality, comfort, and contemporary fashion that speaks to modern trendsetters.
         </p>
 
         {/* Stats bar */}
         <div className="flex justify-center gap-8 text-center mb-8">
           <div className="flex flex-col">
-            <span className="text-2xl font-bold text-gradient">10K+</span>
-            <span className="text-sm text-gray-500">Happy Customers</span>
+            <span className="text-2xl font-bold text-amber-900">10K+</span>
+            <span className="text-sm text-amber-700">Happy Customers</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-2xl font-bold text-gradient">50+</span>
-            <span className="text-sm text-gray-500">Products</span>
+            <span className="text-2xl font-bold text-amber-900">50+</span>
+            <span className="text-sm text-amber-700">Premium Products</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-2xl font-bold text-gradient">4.9</span>
-            <span className="text-sm text-gray-500">★ Rating</span>
+            <span className="text-2xl font-bold text-amber-900">4.9</span>
+            <span className="text-sm text-amber-700">Customer Rating</span>
           </div>
         </div>
       </div>
@@ -63,8 +62,8 @@ const BestSeller = () => {
             style={{ animationDelay: `${index * 0.15}s` }}
           >
             {/* Bestseller badge */}
-            <div className="absolute -top-2 -left-2 z-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg">
-              🏆 #{index + 1}
+            <div className="absolute -top-2 -left-2 z-10 bg-gradient-to-r from-amber-700 to-amber-900 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg">
+              #{index + 1}
             </div>
             <ProductItem
               id={item._id}
@@ -83,8 +82,8 @@ const BestSeller = () => {
         }`}
       >
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button className="btn-primary">🔥 Shop Bestsellers</button>
-          <button className="btn-secondary">📱 Get Notified</button>
+          <button className="btn-primary">Shop Bestsellers</button>
+          <button className="btn-secondary">Get Notified</button>
         </div>
       </div>
     </div>

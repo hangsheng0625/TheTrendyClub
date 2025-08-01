@@ -12,27 +12,26 @@ const Hero = () => {
       <div className="w-full sm:w-1/2 flex items-center justify-center py-16 sm:py-0 px-8 relative z-10">
         <div className="text-[#2d3748] max-w-lg animate-slideInLeft">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 md:w-16 h-[3px] bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full"></div>
-            <p className="font-semibold text-sm md:text-base text-indigo-600 tracking-wider uppercase">
-              ✨ Our Bestsellers
+            <div className="w-12 md:w-16 h-[3px] bg-gradient-to-r from-amber-700 to-amber-900 rounded-full"></div>
+            <p className="font-semibold text-sm md:text-base text-amber-800 tracking-wider uppercase">
+              Discover Your Style
             </p>
           </div>
 
-          <h1 className="prata-regular text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6 text-gradient">
-            Latest Arrivals
+          <h1 className="prata-regular text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6 text-amber-900 font-extrabold">
+            Elevate Your Wardrobe
           </h1>
 
-          <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-            Discover our curated collection of premium fashion pieces,
-            handpicked for the modern trendsetter.
+          <p className="text-amber-900 text-lg mb-8 leading-relaxed font-medium">
+            Step into a world of timeless fashion. Explore our handpicked selection of premium pieces designed for those who set trends, not follow them. Uncover the latest arrivals and redefine your everyday look with confidence.
           </p>
 
           <div className="flex items-center gap-4 group cursor-pointer">
-            <button className="btn-primary group-hover:shadow-2xl">
-              SHOP NOW
+            <button className="px-8 py-3 rounded-lg bg-amber-900 text-white font-semibold shadow-md hover:bg-amber-800 transition-colors duration-300 group-hover:shadow-2xl">
+              Shop the Collection
             </button>
-            <div className="w-12 md:w-16 h-[2px] bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full transform transition-all duration-300 group-hover:w-20"></div>
-            <span className="text-2xl transform transition-transform duration-300 group-hover:translate-x-2">
+            <div className="w-12 md:w-16 h-[2px] bg-gradient-to-r from-amber-700 to-amber-900 rounded-full transform transition-all duration-300 group-hover:w-20"></div>
+            <span className="text-2xl text-amber-900 transform transition-transform duration-300 group-hover:translate-x-2">
               →
             </span>
           </div>
@@ -69,7 +68,7 @@ const Hero = () => {
           {/* Floating badge */}
           <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-white/20">
             <p className="text-sm font-semibold text-gray-800">
-              🔥 Trending Now
+              Trending Now
             </p>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { assets } from "../assets/assets";
 
 const Footer = () => {
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white mt-20">
+    <div className="bg-gradient-to-br from-amber-900 via-amber-800 to-yellow-900 text-white mt-20">
       {/* Main footer content */}
       <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -14,25 +14,22 @@ const Footer = () => {
               className="mb-6 w-40 brightness-0 invert"
               alt="Logo"
             />
-            <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
-              Discover the latest trends in fashion with TheTrendyClub. We bring
-              you premium quality clothing that combines style, comfort, and
-              affordability. Join our community of fashion enthusiasts and stay
-              ahead of the trends.
+            <p className="text-amber-100 leading-relaxed mb-6 max-w-md">
+              Experience fashion excellence with The Trendy Club. We curate premium quality clothing that seamlessly blends contemporary style with timeless elegance. Join our community of fashion connoisseurs and elevate your wardrobe.
             </p>
 
             {/* Social media */}
             <div className="flex gap-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 bg-gradient-to-r from-amber-600 to-amber-800 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
                 <span className="text-white font-bold">f</span>
               </div>
-              <div className="w-10 h-10 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 bg-gradient-to-r from-amber-600 to-yellow-700 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
                 <span className="text-white font-bold">📷</span>
               </div>
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 bg-gradient-to-r from-yellow-600 to-amber-700 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
                 <span className="text-white font-bold">🐦</span>
               </div>
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 bg-gradient-to-r from-amber-700 to-amber-900 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
                 <span className="text-white font-bold">💼</span>
               </div>
             </div>
@@ -40,7 +37,7 @@ const Footer = () => {
 
           {/* Company links */}
           <div>
-            <h3 className="text-xl font-bold mb-6 text-gradient-light">
+            <h3 className="text-xl font-bold mb-6 text-amber-100">
               Company
             </h3>
             <ul className="space-y-3">
@@ -49,7 +46,7 @@ const Footer = () => {
                   <li key={index}>
                     <a
                       href="#"
-                      className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
+                      className="text-amber-200 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
                     >
                       {item}
                     </a>
@@ -61,14 +58,14 @@ const Footer = () => {
 
           {/* Customer service */}
           <div>
-            <h3 className="text-xl font-bold mb-6 text-gradient-light">
+            <h3 className="text-xl font-bold mb-6 text-amber-100">
               Support
             </h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="#"
-                  className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
+                  className="text-amber-200 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
                 >
                   Contact Us
                 </a>
@@ -76,7 +73,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
+                  className="text-amber-200 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
                 >
                   Size Guide
                 </a>
@@ -84,7 +81,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
+                  className="text-amber-200 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
                 >
                   Shipping Info
                 </a>
@@ -92,7 +89,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-gray-300 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
+                  className="text-amber-200 hover:text-white hover:translate-x-2 transition-all duration-300 inline-block"
                 >
                   Returns & Exchanges
                 </a>
