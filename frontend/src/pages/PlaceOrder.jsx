@@ -145,22 +145,23 @@ const PlaceOrder = () => {
   };
 
   return (
-    <form
-      onSubmit={onSubmitHandler}
-      className="flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h-[8-vh] border-t"
-    >
-      {/* {------------------ Left Side ------------------} */}
-      <div className="flex flex-col gap-4 w-full sm:max-w-[480px]">
-        <div className="text-xl sm:text-2xl my-3">
-          <Title text1={"DELIVERY"} text2={"INFORMATION"}></Title>
-        </div>
+    <div className="min-h-[80vh] px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] animate-fadeIn">
+      <form
+        onSubmit={onSubmitHandler}
+        className="flex flex-col lg:flex-row justify-between gap-8 pt-8 sm:pt-14"
+      >
+        {/* {------------------ Left Side ------------------} */}
+        <div className="flex flex-col gap-4 w-full lg:max-w-[500px] animate-slideInLeft">
+          <div className="text-xl sm:text-2xl mb-6">
+            <Title text1={"DELIVERY"} text2={"INFORMATION"}></Title>
+          </div>
         <div className="flex gap-3">
           <input
             required
             onChange={onChangeHandler}
             name="firstName"
             value={formData.firstName}
-            className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+            className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
             type="text"
             placeholder="First name"
           />
@@ -169,7 +170,7 @@ const PlaceOrder = () => {
             onChange={onChangeHandler}
             name="lastName"
             value={formData.lastName}
-            className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+            className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
             type="text"
             placeholder="Last name"
           />
@@ -179,7 +180,7 @@ const PlaceOrder = () => {
           onChange={onChangeHandler}
           name="email"
           value={formData.email}
-          className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+          className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
           type="email"
           placeholder="Email address"
         />
@@ -188,7 +189,7 @@ const PlaceOrder = () => {
           onChange={onChangeHandler}
           name="street"
           value={formData.street}
-          className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+          className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
           type="text"
           placeholder="Street"
         />
@@ -199,7 +200,7 @@ const PlaceOrder = () => {
             onChange={onChangeHandler}
             name="city"
             value={formData.city}
-            className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+            className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
             type="text"
             placeholder="City"
           />
@@ -208,7 +209,7 @@ const PlaceOrder = () => {
             onChange={onChangeHandler}
             name="state"
             value={formData.state}
-            className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+            className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
             type="text"
             placeholder="State"
           />
@@ -220,7 +221,7 @@ const PlaceOrder = () => {
             onChange={onChangeHandler}
             name="zipcode"
             value={formData.zipcode}
-            className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+            className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
             type="number"
             placeholder="Zipcode"
           />
@@ -229,7 +230,7 @@ const PlaceOrder = () => {
             onChange={onChangeHandler}
             name="country"
             value={formData.country}
-            className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+            className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
             type="text"
             placeholder="Country"
           />
@@ -240,72 +241,69 @@ const PlaceOrder = () => {
           onChange={onChangeHandler}
           name="phone"
           value={formData.phone}
-          className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
+          className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
           type="number"
           placeholder="Phone"
         />
       </div>
 
       {/* {----------------------------- Right Side ----------------------} */}
-      <div className="mt-8">
-        <div className="mt-8 min-w-80">
+      <div className="w-full lg:max-w-[400px] animate-slideInRight">
+        <div className="sticky top-8">
           <CartTotal></CartTotal>
         </div>
 
-        <div className="mt-12">
+        <div className="mt-8">
           <Title text1={"PAYMENT"} text2={"METHOD"}></Title>
-          <div className="flex gap-3 flex-col lg:flex-row">
+          <div className="flex gap-3 flex-col sm:flex-row lg:flex-col mt-4">
             {/* {------------------------ Display payment method -----------------------------} */}
             <div
               onClick={() => setMethod("stripe")}
-              className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
+              className={`flex items-center gap-3 border-2 p-3 px-4 cursor-pointer rounded-lg transition-all ${
+                method === "stripe" 
+                  ? "border-green-400 bg-green-50" 
+                  : "border-gray-200 hover:border-gray-300"
+              }`}
             >
               <p
-                className={`min-w-3.5 h-3.5 border rounded-full ${
-                  method === "stripe" ? "bg-green-400" : ""
+                className={`min-w-3.5 h-3.5 border-2 rounded-full ${
+                  method === "stripe" ? "bg-green-400 border-green-400" : "border-gray-300"
                 }`}
               ></p>
-              <img className="h-5 mx-4" src={assets.stripe_logo} alt="" />
+              <img className="h-5 mx-2" src={assets.stripe_logo} alt="Stripe" />
             </div>
-
-            {/* <div
-              onClick={() => setMethod("razorpay")}
-              className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
-            >
-              <p
-                className={`min-w-3.5 h-3.5 border rounded-full ${
-                  method === "razorpay" ? "bg-green-400" : ""
-                }`}
-              ></p>
-              <img className="h-5 mx-4" src={assets.razorpay_logo} alt="" />
-            </div> */}
 
             <div
               onClick={() => setMethod("cod")}
-              className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
+              className={`flex items-center gap-3 border-2 p-3 px-4 cursor-pointer rounded-lg transition-all ${
+                method === "cod" 
+                  ? "border-green-400 bg-green-50" 
+                  : "border-gray-200 hover:border-gray-300"
+              }`}
             >
               <p
-                className={`min-w-3.5 h-3.5 border rounded-full ${
-                  method === "cod" ? "bg-green-400" : ""
+                className={`min-w-3.5 h-3.5 border-2 rounded-full ${
+                  method === "cod" ? "bg-green-400 border-green-400" : "border-gray-300"
                 }`}
               ></p>
-              <p className="text-gray-500 text-sm font-medium mx-4">
+              <p className="text-gray-700 text-sm font-medium mx-2">
                 CASH ON DELIVERY
               </p>
             </div>
           </div>
         </div>
 
-        <div className="w-full text-end mt-8">
+        <div className="w-full mt-8">
           <button
             type="submit"
-            className="bg-black text-white px-16 py-3 text-sm"
+            className="w-full bg-black text-white py-3 text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 uppercase tracking-wide"
           >
             PLACE ORDER
           </button>
         </div>
       </div>
     </form>
+    </div>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { Heart } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -91,7 +92,7 @@ const Footer = () => {
         <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] py-6">
           <div className="flex justify-center items-center">
             <p className="text-gray-400 text-sm text-center">
-              © 2025 TheTrendyClub. All rights reserved. Made with ❤️ for fashion lovers.
+              © 2025 TheTrendyClub. All rights reserved. Made with <Heart className="inline-block w-4 h-4 border-spacing-9 text-red-500" /> for fashion lovers.
             </p>
           </div>
 
