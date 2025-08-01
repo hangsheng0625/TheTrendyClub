@@ -1,9 +1,5 @@
 # TheTrendyClub E-Commerce Platform 🛍️
 
-[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-6.0+-brightgreen.svg)](https://www.mongodb.com/)
-
 TheTrendyClub is a comprehensive full-stack e-commerce web application featuring a modern customer-facing storefront, sophisticated admin dashboard, and robust backend API. Built with cutting-edge technologies including React, Node.js, Express, and MongoDB, this platform delivers a seamless shopping experience with professional-grade features.
 
 ## 🌟 Live Demo
@@ -151,15 +147,6 @@ TheTrendyClub/
   - Vercel deployment for scalability
   - Environment-based configuration
 
-## 🚀 Getting Started
-
-### 📋 Prerequisites
-- **Node.js** (v18.0.0 or higher) - [Download here](https://nodejs.org/)
-- **MongoDB** instance (local or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
-- **Cloudinary** account for image management - [Sign up here](https://cloudinary.com/)
-- **Stripe** account for payment processing - [Sign up here](https://stripe.com/)
-- **Git** for version control - [Download here](https://git-scm.com/)
-
 ### 🔧 Environment Configuration
 
 #### Backend Environment Variables (`backend/.env`)
@@ -190,7 +177,7 @@ NODE_ENV=development
 #### Frontend Environment Variables (`frontend/.env`)
 ```env
 # Backend API URL
-VITE_BACKEND_URL=http://localhost:4000
+VITE_BACKEND_URL=http://localhost:5173
 # For production: https://thetrendyclub-backend.vercel.app
 
 # Stripe Public Key (for payment forms)
@@ -200,7 +187,7 @@ VITE_STRIPE_PUBLIC_KEY=pk_test_your_stripe_public_key
 #### Admin Environment Variables (`admin/.env`)
 ```env
 # Backend API URL
-VITE_BACKEND_URL=http://localhost:4000
+VITE_BACKEND_URL=http://localhost:5174
 # For production: https://thetrendyclub-backend.vercel.app
 ```
 
@@ -226,11 +213,6 @@ npm install
 
 # Start development server
 npm run server
-# Server will start at http://localhost:4000
-
-# Alternative commands:
-npm run dev     # Development with nodemon
-npm start       # Production server
 ```
 
 #### 2️⃣ Customer Frontend
@@ -243,11 +225,6 @@ npm install
 
 # Start development server
 npm run dev
-# Application will start at http://localhost:3000
-
-# Build for production
-npm run build
-npm run preview  # Preview production build
 ```
 
 #### 3️⃣ Admin Dashboard
@@ -260,11 +237,7 @@ npm install
 
 # Start development server
 npm run dev
-# Admin dashboard will start at http://localhost:3001
-
-# Build for production
-npm run build
-npm run preview  # Preview production build
+````
 
 ## 🛠️ Tech Stack
 
