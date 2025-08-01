@@ -2,8 +2,16 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "./Title";
 import ProductItem from "./ProductItem";
+import { useNavigate } from "react-router-dom";
+    
 
 const LatestCollection = () => {
+  const navigate = useNavigate();
+
+  const handleShopCollection = () => {
+    navigate("/collection");
+  };
+
   const { products } = useContext(ShopContext);
   const [latestProducts, setLatestProducts] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
@@ -71,7 +79,10 @@ const LatestCollection = () => {
 
       {/* View All Button */}
       <div className="text-center mt-12">
-        <button className="bg-grey-800 hover:bg-grey-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+        <button
+          onClick={handleShopCollection}
+          className="bg-grey-800 hover:bg-grey-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+        >
           View All Collections
         </button>
       </div>

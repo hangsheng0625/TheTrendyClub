@@ -1,7 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleShopCollection = () => {
+    navigate('/collection');
+  };
+
   return (
     <div className="relative min-h-[70vh] sm:min-h-[75vh] flex flex-col sm:flex-row bg-gradient-to-br from-white via-gray-50 to-gray-100 overflow-hidden w-full">
       {/* Decorative Background Circles */}
@@ -30,7 +37,10 @@ const Hero = () => {
           </p>
 
           <div className="flex items-center gap-4 group cursor-pointer">
-            <button className="px-8 py-3 rounded-lg bg-gradient-to-r from-gray-600 to-gray-800 text-white font-semibold shadow-md hover:from-gray-700 hover:to-gray-900 transition-all duration-300 group-hover:shadow-2xl">
+            <button 
+              onClick={handleShopCollection}
+              className="px-8 py-3 rounded-lg bg-gradient-to-r from-gray-600 to-gray-800 text-white font-semibold shadow-md hover:from-gray-700 hover:to-gray-900 transition-all duration-300 group-hover:shadow-2xl"
+            >
               Shop the Collection
             </button>
             <div className="w-12 md:w-16 h-[2px] bg-gradient-to-r from-gray-600 to-gray-800 rounded-full transform transition-all duration-300 group-hover:w-20"></div>
