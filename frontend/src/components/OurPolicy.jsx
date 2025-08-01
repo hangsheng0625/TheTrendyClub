@@ -111,28 +111,6 @@ const OurPolicy = () => {
           </div>
         </div>
       </div>
-
-      {/* Trust indicators */}
-      <div className="mt-16 text-center">
-        <div className="flex justify-center items-center gap-8 flex-wrap">
-          <div className="flex items-center gap-2">
-            <Lock className="w-6 h-6" />
-            <span className="text-sm text-grey-600">Secure Payment</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Truck className="w-6 h-6" />
-            <span className="text-sm text-grey-600">Free Shipping</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Star className="w-6 h-6" />
-            <span className="text-sm text-grey-600">4.9/5 Rating</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Trophy className="w-6 h-6" />
-            <span className="text-sm text-grey-600">Award Winning</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
