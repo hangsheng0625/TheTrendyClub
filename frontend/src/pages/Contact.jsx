@@ -2,6 +2,7 @@ import React from "react";
 import Title from "../components/Title";
 import { assets } from "../assets/assets";
 import Newsletter from "../components/Newsletter";
+import { Store, MapPin, Phone, Mail, Clock, Briefcase, Handshake } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -24,16 +25,16 @@ const Contact = () => {
         </div>
 
         <div className="lg:w-1/2 flex flex-col justify-center gap-8">
-          <div className="bg-white p-8 rounded-2xl shadow-lg border border-amber-100">
-            <h3 className="font-bold text-2xl text-amber-900 mb-6 flex items-center">
-              <span className="w-8 h-8 bg-amber-700 rounded-full flex items-center justify-center mr-3">
-                <span className="text-white text-sm">🏪</span>
+          <div className="bg-white p-8 rounded-2xl shadow-lg border border-grey-200">
+            <h3 className="font-bold text-2xl text-grey-800 mb-6 flex items-center">
+              <span className="w-8 h-8 bg-grey-600 rounded-full flex items-center justify-center mr-3">
+                <Store className="text-white w-4 h-4" />
               </span>
               Our Flagship Store
             </h3>
-            <div className="space-y-4 text-amber-800">
+            <div className="space-y-4 text-grey-700">
               <p className="flex items-start">
-                <span className="text-amber-700 mr-3 mt-1">📍</span>
+                <MapPin className="text-grey-600 mr-3 mt-1 w-5 h-5" />
                 <span>
                   34, Jalan Bukit Kempas
                   <br />
@@ -43,45 +44,45 @@ const Contact = () => {
                 </span>
               </p>
               <p className="flex items-center">
-                <span className="text-amber-700 mr-3">📞</span>
+                <Phone className="text-grey-600 mr-3 w-5 h-5" />
                 <span>+60 13-984 6692</span>
               </p>
               <p className="flex items-center">
-                <span className="text-amber-700 mr-3">✉️</span>
+                <Mail className="text-grey-600 mr-3 w-5 h-5" />
                 <span>hangsheng279@gmail.com</span>
               </p>
               <p className="flex items-center">
-                <span className="text-amber-700 mr-3">🕒</span>
+                <Clock className="text-grey-600 mr-3 w-5 h-5" />
                 <span>Mon-Sat: 10AM-9PM | Sun: 11AM-7PM</span>
               </p>
             </div>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-lg border border-amber-100">
-            <h3 className="font-bold text-2xl text-amber-900 mb-6 flex items-center">
-              <span className="w-8 h-8 bg-amber-700 rounded-full flex items-center justify-center mr-3">
-                <span className="text-white text-sm">💼</span>
+          <div className="bg-white p-8 rounded-2xl shadow-lg border border-grey-200">
+            <h3 className="font-bold text-2xl text-grey-800 mb-6 flex items-center">
+              <span className="w-8 h-8 bg-grey-600 rounded-full flex items-center justify-center mr-3">
+                <Briefcase className="text-white w-4 h-4" />
               </span>
               Join Our Team
             </h3>
-            <p className="text-amber-800 leading-relaxed mb-6">
+            <p className="text-grey-700 leading-relaxed mb-6">
               Passionate about fashion? We're always looking for talented
               individuals to join our growing team. Discover exciting career
               opportunities in retail, design, marketing, and more.
             </p>
-            <button className="bg-amber-900 hover:bg-amber-800 text-white px-8 py-4 rounded-lg font-semibold shadow-md transition-all duration-300 hover:shadow-lg transform hover:scale-105">
+            <button className="bg-grey-800 hover:bg-grey-700 text-white px-8 py-4 rounded-lg font-semibold shadow-md transition-all duration-300 hover:shadow-lg transform hover:scale-105">
               Explore Careers
             </button>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-lg border border-amber-100">
-            <h3 className="font-bold text-2xl text-amber-900 mb-6 flex items-center">
-              <span className="w-8 h-8 bg-amber-700 rounded-full flex items-center justify-center mr-3">
-                <span className="text-white text-sm">🤝</span>
+          <div className="bg-white p-8 rounded-2xl shadow-lg border border-grey-200">
+            <h3 className="font-bold text-2xl text-grey-800 mb-6 flex items-center">
+              <span className="w-8 h-8 bg-grey-600 rounded-full flex items-center justify-center mr-3">
+                <Handshake className="text-white w-4 h-4" />
               </span>
               Business Partnerships
             </h3>
-            <p className="text-amber-800 leading-relaxed mb-6">
+            <p className="text-grey-700 leading-relaxed mb-6">
               Interested in collaborating with The Trendy Club? We're open to
               partnerships with designers, influencers, and brands that share
               our vision for accessible, stylish fashion.

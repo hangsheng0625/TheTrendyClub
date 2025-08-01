@@ -1,5 +1,6 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { Instagram, Twitter, Linkedin, MapPin, Phone, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -27,13 +28,13 @@ const Footer = () => {
                 <span className="text-white font-bold">f</span>
               </div>
               <div className="w-10 h-10 bg-gradient-to-r from-grey-600 to-grey-400 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
-                <span className="text-white font-bold">📷</span>
+                <Instagram className="text-white w-5 h-5" />
               </div>
               <div className="w-10 h-10 bg-gradient-to-r from-grey-500 to-grey-600 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
-                <span className="text-white font-bold">🐦</span>
+                <Twitter className="text-white w-5 h-5" />
               </div>
               <div className="w-10 h-10 bg-gradient-to-r from-grey-500 to-grey-700 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-300">
-                <span className="text-white font-bold">💼</span>
+                <Linkedin className="text-white w-5 h-5" />
               </div>
             </div>
           </div>
@@ -110,7 +111,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center">
-                <span className="text-white text-lg">📍</span>
+                <MapPin className="text-white w-5 h-5" />
               </div>
               <div>
                 <h4 className="font-semibold mb-1">Visit Us</h4>
@@ -126,7 +127,7 @@ const Footer = () => {
 
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center">
-                <span className="text-white text-lg">📞</span>
+                <Phone className="text-white w-5 h-5" />
               </div>
               <div>
                 <h4 className="font-semibold mb-1">Call Us</h4>
@@ -140,7 +141,7 @@ const Footer = () => {
 
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-red-600 rounded-full flex items-center justify-center">
-                <span className="text-white text-lg">✉️</span>
+                <Mail className="text-white w-5 h-5" />
               </div>
               <div>
                 <h4 className="font-semibold mb-1">Email Us</h4>

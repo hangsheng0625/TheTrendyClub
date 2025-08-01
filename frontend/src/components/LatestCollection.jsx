@@ -71,7 +71,7 @@ const LatestCollection = () => {
 
       {/* View All Button */}
       <div className="text-center mt-12">
-        <button className="bg-amber-900 hover:bg-amber-800 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+        <button className="bg-grey-800 hover:bg-grey-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
           View All Collections
         </button>
       </div>
