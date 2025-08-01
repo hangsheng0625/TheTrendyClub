@@ -32,48 +32,96 @@ const Navbar = () => {
           <img src={assets.logo} className="w-32 sm:w-36" alt="Logo" />
         </Link>
 
-        {/* Navigation - Now visible on all screen sizes */}
-        <ul className="flex gap-4 sm:gap-8 text-xs sm:text-sm text-grey-800 font-semibold tracking-wide overflow-x-auto">
+        {/* Desktop Navigation - Hidden on Mobile */}
+        <ul className="hidden md:flex gap-8 text-sm text-grey-800 font-semibold tracking-wide">
           <NavLink
             to="/"
-            className="group flex flex-col items-center gap-1 py-2 px-2 sm:px-4 rounded-lg transition-all duration-300 hover:bg-grey-50 whitespace-nowrap"
+            className={({ isActive }) =>
+              `group flex flex-col items-center gap-1 py-2 px-4 rounded-lg transition-all duration-300 hover:bg-grey-50 ${
+                isActive ? "bg-grey-100" : ""
+              }`
+            }
           >
-            <p className="group-hover:text-grey-600 transition-colors duration-300 text-title font-inter font-semibold">
-              HOME
-            </p>
-            <hr className="w-0 group-hover:w-full border-none h-[2px] bg-gradient-to-r from-grey-600 to-grey-800 transition-all duration-300" />
+            {({ isActive }) => (
+              <>
+                <p className={`group-hover:text-grey-600 transition-colors duration-300 text-title font-inter font-semibold ${
+                  isActive ? "text-grey-600" : ""
+                }`}>
+                  HOME
+                </p>
+                <hr className={`border-none h-[2px] bg-gradient-to-r from-grey-300 to-grey-300 transition-all duration-300 ${
+                  isActive ? "w-full" : "w-0 group-hover:w-full"
+                }`} />
+              </>
+            )}
           </NavLink>
           <NavLink
             to="/collection"
-            className="group flex flex-col items-center gap-1 py-2 px-2 sm:px-4 rounded-lg transition-all duration-300 hover:bg-grey-50 whitespace-nowrap"
+            className={({ isActive }) =>
+              `group flex flex-col items-center gap-1 py-2 px-4 rounded-lg transition-all duration-300 hover:bg-grey-50 ${
+                isActive ? "bg-grey-100" : ""
+              }`
+            }
           >
-            <p className="group-hover:text-grey-600 transition-colors duration-300 text-title font-inter font-semibold">
-              COLLECTION
-            </p>
-            <hr className="w-0 group-hover:w-full border-none h-[2px] bg-gradient-to-r from-grey-600 to-grey-800 transition-all duration-300" />
+            {({ isActive }) => (
+              <>
+                <p className={`group-hover:text-grey-600 transition-colors duration-300 text-title font-inter font-semibold ${
+                  isActive ? "text-grey-600" : ""
+                }`}>
+                  COLLECTION
+                </p>
+                <hr className={`border-none h-[2px] bg-gradient-to-r from-grey-600 to-grey-800 transition-all duration-300 ${
+                  isActive ? "w-full" : "w-0 group-hover:w-full"
+                }`} />
+              </>
+            )}
           </NavLink>
           <NavLink
             to="/about"
-            className="group flex flex-col items-center gap-1 py-2 px-2 sm:px-4 rounded-lg transition-all duration-300 hover:bg-grey-50 whitespace-nowrap"
+            className={({ isActive }) =>
+              `group flex flex-col items-center gap-1 py-2 px-4 rounded-lg transition-all duration-300 hover:bg-grey-50 ${
+                isActive ? "bg-grey-100" : ""
+              }`
+            }
           >
-            <p className="group-hover:text-grey-600 transition-colors duration-300 text-title font-inter font-semibold">
-              ABOUT
-            </p>
-            <hr className="w-0 group-hover:w-full border-none h-[2px] bg-gradient-to-r from-grey-600 to-grey-800 transition-all duration-300" />
+            {({ isActive }) => (
+              <>
+                <p className={`group-hover:text-grey-600 transition-colors duration-300 text-title font-inter font-semibold ${
+                  isActive ? "text-grey-600" : ""
+                }`}>
+                  ABOUT
+                </p>
+                <hr className={`border-none h-[2px] bg-gradient-to-r from-grey-600 to-grey-800 transition-all duration-300 ${
+                  isActive ? "w-full" : "w-0 group-hover:w-full"
+                }`} />
+              </>
+            )}
           </NavLink>
           <NavLink
             to="/contact"
-            className="group flex flex-col items-center gap-1 py-2 px-2 sm:px-4 rounded-lg transition-all duration-300 hover:bg-grey-50 whitespace-nowrap"
+            className={({ isActive }) =>
+              `group flex flex-col items-center gap-1 py-2 px-4 rounded-lg transition-all duration-300 hover:bg-grey-50 ${
+                isActive ? "bg-grey-100" : ""
+              }`
+            }
           >
-            <p className="group-hover:text-grey-600 transition-colors duration-300 text-title font-inter font-semibold">
-              CONTACT
-            </p>
-            <hr className="w-0 group-hover:w-full border-none h-[2px] bg-gradient-to-r from-grey-600 to-grey-800 transition-all duration-300" />
+            {({ isActive }) => (
+              <>
+                <p className={`group-hover:text-grey-600 transition-colors duration-300 text-title font-inter font-semibold ${
+                  isActive ? "text-grey-600" : ""
+                }`}>
+                  CONTACT
+                </p>
+                <hr className={`border-none h-[2px] bg-gradient-to-r from-grey-600 to-grey-800 transition-all duration-300 ${
+                  isActive ? "w-full" : "w-0 group-hover:w-full"
+                }`} />
+              </>
+            )}
           </NavLink>
         </ul>
 
         {/* Action Icons */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
           <div
             onClick={() => setShowSearch(true)}
             className="p-2 rounded-full hover:bg-grey-100 transition-all duration-300 cursor-pointer group"
@@ -139,15 +187,93 @@ const Navbar = () => {
             </div>
           </Link>
 
-          {/* Mobile Menu Button - Hidden for cleaner design */}
-          <div className="hidden">
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setVisible(!visible)}
+            className="md:hidden p-2 rounded-full hover:bg-grey-100 transition-all duration-300 cursor-pointer"
+          >
             <img src={assets.menu_icon} className="w-5" alt="Menu" />
-          </div>
+          </button>
         </div>
 
-        {/* Mobile Sidebar - Completely Hidden */}
-        <div className="hidden">
-          {/* Sidebar completely removed for cleaner design */}
+        {/* Mobile Sidebar */}
+        <div
+          className={`absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-b border-grey-200 shadow-lg transition-all duration-300 md:hidden ${
+            visible ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+        >
+          <div className="px-4 py-6">
+            <ul className="flex flex-col gap-4">
+              <NavLink
+                to="/"
+                onClick={() => setVisible(false)}
+                className={({ isActive }) =>
+                  `group flex items-center gap-3 py-3 px-4 rounded-lg transition-all duration-300 hover:bg-grey-50 ${
+                    isActive ? "bg-grey-100" : ""
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <p className={`font-semibold tracking-wide ${
+                    isActive ? "text-grey-600" : "text-grey-800"
+                  }`}>
+                    HOME
+                  </p>
+                )}
+              </NavLink>
+              <NavLink
+                to="/collection"
+                onClick={() => setVisible(false)}
+                className={({ isActive }) =>
+                  `group flex items-center gap-3 py-3 px-4 rounded-lg transition-all duration-300 hover:bg-grey-50 ${
+                    isActive ? "bg-grey-100" : ""
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <p className={`font-semibold tracking-wide ${
+                    isActive ? "text-grey-600" : "text-grey-800"
+                  }`}>
+                    COLLECTION
+                  </p>
+                )}
+              </NavLink>
+              <NavLink
+                to="/about"
+                onClick={() => setVisible(false)}
+                className={({ isActive }) =>
+                  `group flex items-center gap-3 py-3 px-4 rounded-lg transition-all duration-300 hover:bg-grey-50 ${
+                    isActive ? "bg-grey-100" : ""
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <p className={`font-semibold tracking-wide ${
+                    isActive ? "text-grey-600" : "text-grey-800"
+                  }`}>
+                    ABOUT
+                  </p>
+                )}
+              </NavLink>
+              <NavLink
+                to="/contact"
+                onClick={() => setVisible(false)}
+                className={({ isActive }) =>
+                  `group flex items-center gap-3 py-3 px-4 rounded-lg transition-all duration-300 hover:bg-grey-50 ${
+                    isActive ? "bg-grey-100" : ""
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <p className={`font-semibold tracking-wide ${
+                    isActive ? "text-grey-600" : "text-grey-800"
+                  }`}>
+                    CONTACT
+                  </p>
+                )}
+              </NavLink>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

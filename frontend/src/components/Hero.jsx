@@ -6,7 +6,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const handleShopCollection = () => {
-    navigate('/collection');
+    navigate("/collection");
   };
 
   return (
@@ -37,7 +37,7 @@ const Hero = () => {
           </p>
 
           <div className="flex items-center gap-4 group cursor-pointer">
-            <button 
+            <button
               onClick={handleShopCollection}
               className="px-8 py-3 rounded-lg bg-gradient-to-r from-gray-600 to-gray-800 text-white font-semibold shadow-md hover:from-gray-700 hover:to-gray-900 transition-all duration-300 group-hover:shadow-2xl"
             >

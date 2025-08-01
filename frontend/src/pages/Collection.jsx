@@ -32,9 +32,7 @@ const Collection = () => {
     }
 
     if (subCategory.length) {
-      result = result.filter((item) =>
-        subCategory.includes(item.subCategory)
-      );
+      result = result.filter((item) => subCategory.includes(item.subCategory));
     }
 
     if (showSearch && search) {
@@ -72,7 +70,13 @@ const Collection = () => {
 
   // Initialize products when component mounts or products change
   useEffect(() => {
-    if (products && products.length > 0 && filteredProducts.length === 0 && category.length === 0 && subCategory.length === 0) {
+    if (
+      products &&
+      products.length > 0 &&
+      filteredProducts.length === 0 &&
+      category.length === 0 &&
+      subCategory.length === 0
+    ) {
       setFilteredProducts([...products]);
       setIsLoading(false);
     }
@@ -106,7 +110,9 @@ const Collection = () => {
             title="CATEGORIES"
             options={["Men", "Women", "Kids"]}
             selected={category}
-            onToggle={(value) => toggleItemInArray(value, category, setCategory)}
+            onToggle={(value) =>
+              toggleItemInArray(value, category, setCategory)
+            }
           />
 
           {/* SubCategory Filter */}
@@ -162,8 +168,12 @@ const Collection = () => {
             ))
           ) : (
             <div className="col-span-full text-center py-20">
-              <p className="text-gray-500 text-lg mb-2">No products match your filters.</p>
-              <p className="text-gray-400 text-sm">Try adjusting your search criteria or browse all products.</p>
+              <p className="text-gray-500 text-lg mb-2">
+                No products match your filters.
+              </p>
+              <p className="text-gray-400 text-sm">
+                Try adjusting your search criteria or browse all products.
+              </p>
             </div>
           )}
         </div>
@@ -184,7 +194,10 @@ const FilterGroup = ({ title, options, selected, onToggle }) => (
     </p>
     <div className="flex flex-col gap-3 text-sm text-gray-600">
       {options.map((option) => (
-        <label key={option} className="flex items-center gap-3 cursor-pointer hover:text-gray-800 transition-colors p-1 rounded hover:bg-gray-50">
+        <label
+          key={option}
+          className="flex items-center gap-3 cursor-pointer hover:text-gray-800 transition-colors p-1 rounded hover:bg-gray-50"
+        >
           <input
             type="checkbox"
             className="w-4 h-4 rounded border-gray-300 text-gray-600 focus:ring-gray-500 focus:ring-2"
