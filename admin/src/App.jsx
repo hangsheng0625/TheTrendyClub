@@ -14,6 +14,7 @@ export const currency = 'RM'
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token')? localStorage.getItem('token'): '');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(()=>{
     localStorage.setItem('token', token)
@@ -26,9 +27,9 @@ const App = () => {
       {token === "" 
       ? <Login setToken={setToken} /> 
       : <>
-      <Navbar setToken={setToken}/>
+      <Navbar setToken={setToken} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
       <div className='flex h-[calc(100vh-60px)] sm:h-[calc(100vh-70px)] lg:h-[calc(100vh-80px)]'>
-        <Sidebar setToken={setToken}/>
+        <Sidebar setToken={setToken} isOpen={sidebarOpen} setIsOpen={setSidebarOpen}/>
         <main className='flex-1 overflow-auto bg-gray-50/30'>
           <div className='p-3 sm:p-4 lg:p-8'>
             <Routes>

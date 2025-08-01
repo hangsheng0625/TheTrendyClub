@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { assets } from '../assets/assets'
-import { Plus, List, Package, Menu, X, LogOut, User } from 'lucide-react'
+import { Plus, List, Package, LogOut, User } from 'lucide-react'
 
-const Sidebar = ({ setToken }) => {
-  const [isOpen, setIsOpen] = useState(false)
+const Sidebar = ({ setToken, isOpen, setIsOpen }) => {
 
   const menuItems = [
     {
@@ -29,14 +28,6 @@ const Sidebar = ({ setToken }) => {
 
   return (
     <>
-      {/* Mobile Menu Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-2 left-2 z-50 p-2 rounded-lg bg-white shadow-lg border border-gray-200"
-      >
-        {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
-      </button>
-
       {/* Mobile Overlay */}
       {isOpen && (
         <div
