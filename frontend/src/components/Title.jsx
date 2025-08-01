@@ -6,7 +6,9 @@ const Title = ({ text1, text2 }) => {
       <div className="flex items-center gap-3">
         <p className="text-2xl sm:text-3xl lg:text-4xl font-light text-grey-600 font-playfair">
           {text1}
-          <span className="text-grey-800 font-bold ml-2 font-playfair">{text2}</span>
+          <span className="text-grey-800 font-bold ml-2 font-playfair">
+            {text2}
+          </span>
         </p>
       </div>
       <div className="flex items-center gap-2">

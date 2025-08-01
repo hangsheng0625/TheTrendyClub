@@ -36,23 +36,15 @@ const BestSeller = () => {
 
         {/* Stats bar */}
         <div className="flex justify-center gap-8 text-center mb-8">
-          <div className="flex flex-col">
+          <div className="flex flex-col text-center">
             <span className="text-2xl font-bold text-grey-800">10K+</span>
             <span className="text-sm text-grey-600">Happy Customers</span>
           </div>
-          <div className="text-center">
+          <div className="flex flex-col text-center">
             <span className="text-2xl font-bold text-grey-800">50+</span>
             <span className="text-sm text-grey-600">Premium Products</span>
           </div>
-          <div className="text-center">
-            <span className="text-2xl font-bold text-grey-800">4.9</span>
-            <span className="text-sm text-grey-600">Customer Rating</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-2xl font-bold text-grey-800">50+</span>
-            <span className="text-sm text-grey-600">Premium Products</span>
-          </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col text-center">
             <span className="text-2xl font-bold text-grey-800">4.9</span>
             <span className="text-sm text-grey-600">Customer Rating</span>
           </div>
