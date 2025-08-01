@@ -81,12 +81,14 @@ const Orders = ({ token }) => {
                   <div>
                     <h3 className="text-subtitle text-lg">Order #{order._id.slice(-8)}</h3>
                     <p className="text-body-secondary text-sm">
-                      {new Date(order.date).toLocaleDateString('en-US', {
+                      {new Date(order.date).toLocaleDateString('en-MY', {
+                        timeZone: 'Asia/Kuala_Lumpur',
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric',
                         hour: '2-digit',
-                        minute: '2-digit'
+                        minute: '2-digit',
+                        hour12: true
                       })}
                     </p>
                   </div>
@@ -117,7 +119,7 @@ const Orders = ({ token }) => {
                   <div className="space-y-3">
                     {order.items.map((item, idx) => (
                       <div key={idx} className="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
-                        <div className="w-16 h-16 bg-white rounded-lg overflow-hidden border border-gray-200">
+                        <div className="w-20 h-20 bg-white rounded-lg overflow-hidden border border-gray-200 flex-shrink-0">
                           {item.image && item.image.length > 0 ? (
                             <img 
                               src={item.image[0]} 

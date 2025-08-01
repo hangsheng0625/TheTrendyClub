@@ -22,6 +22,10 @@ const placeOrder = async (req, res) => {
     try {
         const { userId, items, amount, address } = req.body;
 
+        // Get Malaysia time (UTC+8)
+        const malaysiaTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Kuala_Lumpur"});
+        const malaysiaTimestamp = new Date(malaysiaTime).getTime();
+
         const orderData = {
             userId,
             items,
@@ -29,7 +33,7 @@ const placeOrder = async (req, res) => {
             amount,
             paymentMethod: "COD",
             payment: false,
-            date: Date.now()
+            date: malaysiaTimestamp
         }
 
         const newOrder = new orderModel(orderData);
@@ -51,6 +55,10 @@ const placeOrderStripe = async (req, res) => {
         const { userId, items, amount, address } = req.body;
         const {origin} = req.headers;
 
+        // Get Malaysia time (UTC+8)
+        const malaysiaTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Kuala_Lumpur"});
+        const malaysiaTimestamp = new Date(malaysiaTime).getTime();
+
         const orderData = {
             userId,
             items,
@@ -58,7 +66,7 @@ const placeOrderStripe = async (req, res) => {
             amount,
             paymentMethod: "Stripe",
             payment: false,
-            date: Date.now()
+            date: malaysiaTimestamp
         }
         const newOrder = new orderModel(orderData);
         await newOrder.save();
@@ -128,6 +136,10 @@ const placeOrderRazorpay = async (req, res) => {
     try {
         const { userId, items, amount, address } = req.body;
 
+        // Get Malaysia time (UTC+8)
+        const malaysiaTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Kuala_Lumpur"});
+        const malaysiaTimestamp = new Date(malaysiaTime).getTime();
+
         const orderData = {
             userId,
             items,
@@ -135,7 +147,7 @@ const placeOrderRazorpay = async (req, res) => {
             amount,
             paymentMethod: "Razorpay",
             payment: false,
-            date: Date.now()
+            date: malaysiaTimestamp
         }
 
         const newOrder = new orderModel(orderData);
