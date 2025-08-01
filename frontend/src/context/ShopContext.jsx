@@ -8,7 +8,7 @@ export const ShopContext = createContext();
 const ShopContextProvider = (props) => {
     
     const currency = 'RM';
-    const delivery_fee = '10';
+    const delivery_fee = 10;
     const backendUrl = import.meta.env.VITE_BACKEND_URL
     const [search, setSearch] = useState('');
     const [showSearch, setShowSearch] = useState(false);
@@ -87,13 +87,15 @@ const ShopContextProvider = (props) => {
         let totalAmount = 0;
         for (const items in cartItems){
             let itemInfo = products.find((product)=> product._id === items);
-            for (const item in cartItems[items]){
-                try {
-                    if (cartItems[items][item]>0){
-                        totalAmount += itemInfo.price * cartItems[items][item];
+            if (itemInfo) { // Check if product exists
+                for (const item in cartItems[items]){
+                    try {
+                        if (cartItems[items][item] > 0){
+                            totalAmount += itemInfo.price * cartItems[items][item];
+                        }
+                    } catch (error) {
+                        console.log('Error calculating cart amount:', error);
                     }
-                } catch (error) {
-                    
                 }
             }
         }
