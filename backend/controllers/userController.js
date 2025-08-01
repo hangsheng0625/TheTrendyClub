@@ -4,7 +4,7 @@ import userModel from "../models/userModel.js";
 import jwt from "jsonwebtoken";
 
 const createToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET);
+  return jwt.sign({ id }, process.env.JWT_SECRET, { algorithm: 'HS256' });
 };
 
 // Route for user login
@@ -88,7 +88,7 @@ const adminLogin = async (req, res) => {
       email === process.env.ADMIN_EMAIL &&
       password === process.env.ADMIN_PASSWORD
     ) {
-      const token = jwt.sign(email + password, process.env.JWT_SECRET);
+      const token = jwt.sign({ email: email }, process.env.JWT_SECRET, { algorithm: 'HS256' });
 
       res.json({ success: true, token });
     } else {

@@ -63,7 +63,7 @@ const PlaceOrder = () => {
   //       } catch (error) {
   //         console.log(error);
   //         toast.error(error.message);
-          
+
   //       }
   //     }
   //   }
@@ -110,7 +110,7 @@ const PlaceOrder = () => {
             toast.error(response.data.message);
           }
           break;
-        
+
         case "stripe":
           const stripeResponse = await axios.post(
             backendUrl + "/api/order/stripe",
@@ -135,13 +135,12 @@ const PlaceOrder = () => {
         //     initPay(razorpayResponse.data.order);
         //   }
 
-
         default:
           break;
       }
     } catch (error) {
       console.log(error);
-      toast.error(error.message)
+      toast.error(error.message);
     }
   };
 
