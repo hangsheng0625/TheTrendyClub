@@ -83,9 +83,11 @@ const Collection = () => {
   }, [products]);
 
   return (
-    <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 py-10 border-t max-w-7xl mx-auto px-4">
+    <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 py-10 border-t max-w-7xl mx-auto px-4 animate-rollIn
+
+">
       {/* Filter Sidebar */}
-      <aside className="w-full sm:w-64">
+      <aside className="w-full sm:w-64 animate-slideInLeft">{/* Page animation */}
         <button
           onClick={() => setShowFilter(!showFilter)}
           className="flex items-center justify-center gap-2 text-lg font-medium sm:hidden w-full py-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors"
@@ -148,7 +150,8 @@ const Collection = () => {
         </div>
 
         {/* Products */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 animate-fadeInUp"
+             style={{animationDelay: '0.3s', animationFillMode: 'both'}}>
           {isLoading ? (
             <div className="col-span-full flex justify-center items-center py-20">
               <div className="flex flex-col items-center gap-4">

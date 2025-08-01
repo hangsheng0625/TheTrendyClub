@@ -14,8 +14,8 @@ import {
 
 const Contact = () => {
   return (
-    <div className="bg-gradient-to-br from-white via-grey-50 to-grey-100 min-h-screen w-full">
-      <div className="text-center pt-16 px-4 sm:px-8 lg:px-16">
+    <div className="bg-gradient-to-br from-white via-grey-50 to-grey-100 min-h-screen w-full animate-fadeInUp">
+      <div className="text-center pt-16 px-4 sm:px-8 lg:px-16 animate-slideInLeft">
         <Title text1={"CONTACT"} text2={"US"}></Title>
         <p className="text-lg text-grey-700 max-w-2xl mx-auto leading-relaxed mb-8 text-body-primary">
           We'd love to hear from you. Reach out to us for any questions,
@@ -23,8 +23,10 @@ const Contact = () => {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto my-16 px-4 sm:px-8 lg:px-16 flex flex-col justify-center lg:flex-row gap-12 mb-28">
-        <div className="lg:w-1/2">
+      <div className="max-w-6xl mx-auto my-16 px-4 sm:px-8 lg:px-16 flex flex-col justify-center lg:flex-row gap-12 mb-28 animate-fadeInUp"
+           style={{animationDelay: '0.2s', animationFillMode: 'both'}}>
+        <div className="lg:w-1/2 animate-slideInLeft"
+             style={{animationDelay: '0.4s', animationFillMode: 'both'}}>
           <img
             className="w-full rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
             src={assets.contact_img}
@@ -32,7 +34,8 @@ const Contact = () => {
           />
         </div>
 
-        <div className="lg:w-1/2 flex flex-col justify-center gap-8">
+        <div className="lg:w-1/2 flex flex-col justify-center gap-8 animate-fadeInUp"
+             style={{animationDelay: '0.6s', animationFillMode: 'both'}}>
           <div className="bg-white p-8 rounded-2xl shadow-lg border border-grey-200">
             <h3 className="font-bold text-2xl text-grey-800 mb-6 flex items-center">
               <span className="w-8 h-8 bg-grey-600 rounded-full flex items-center justify-center mr-3">
