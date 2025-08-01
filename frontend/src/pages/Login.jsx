@@ -197,15 +197,15 @@ const Login = () => {
         <div className="mt-8 pt-6 border-t border-gray-200">
           <div className="grid grid-cols-3 gap-4 text-center text-xs text-gray-500">
             <div className="flex flex-col items-center gap-1">
-                                    <Lock className="w-5 h-5" />
+              <Lock className="w-5 h-5" />
               <span>Secure</span>
             </div>
             <div className="flex flex-col items-center gap-1">
-                                    <Truck className="w-5 h-5" />
+              <Truck className="w-5 h-5" />
               <span>Free Shipping</span>
             </div>
             <div className="flex flex-col items-center gap-1">
-                                    <Heart className="w-5 h-5" />
+              <Heart className="w-5 h-5" />
               <span>Loved by 10K+</span>
             </div>
           </div>

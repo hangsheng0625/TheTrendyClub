@@ -95,7 +95,7 @@ const Contact = () => {
               partnerships with designers, influencers, and brands that share
               our vision for accessible, stylish fashion.
             </p>
-            <button className="bg-amber-900 hover:bg-amber-800 text-white px-8 py-4 rounded-lg font-semibold shadow-md transition-all duration-300 hover:shadow-lg transform hover:scale-105">
+            <button className="bg-grey-800 hover:bg-grey-700 text-white px-8 py-4 rounded-lg font-semibold shadow-md transition-all duration-300 hover:shadow-lg transform hover:scale-105">
               Partnership Inquiry
             </button>
           </div>
