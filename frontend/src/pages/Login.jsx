@@ -139,7 +139,7 @@ const Login = () => {
             {currentState === "Login" && (
               <button
                 type="button"
-                className="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-300"
+                className="text-black font-bold hover:text-gray-700 transition-colors duration-300"
               >
                 Forgot password?
               </button>
@@ -150,7 +150,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className={`w-full btn-primary relative ${
+            className={`w-full py-3 px-6 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition-all duration-300 relative ${
               isLoading ? "opacity-75 cursor-not-allowed" : ""
             }`}
           >
@@ -160,15 +160,15 @@ const Login = () => {
                 <span>Processing...</span>
               </div>
             ) : currentState === "Login" ? (
-              <>
-                <Rocket className="w-5 h-5 mr-2" />
-                Sign In
-              </>
+              <div className="flex items-center justify-center gap-2">
+                <Rocket className="w-5 h-5" />
+                <span>Sign In</span>
+              </div>
             ) : (
-              <>
-                <Sparkles className="w-5 h-5 mr-2" />
-                Create Account
-              </>
+              <div className="flex items-center justify-center gap-2">
+                <Sparkles className="w-5 h-5" />
+                <span>Create Account</span>
+              </div>
             )}
           </button>
 
@@ -185,7 +185,7 @@ const Login = () => {
                     currentState === "Login" ? "Sign Up" : "Login"
                   )
                 }
-                className="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-300"
+                className="text-black font-bold hover:text-gray-700 transition-colors duration-300"
               >
                 {currentState === "Login" ? "Sign up here" : "Sign in here"}
               </button>
