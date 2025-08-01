@@ -2,7 +2,15 @@ import React from "react";
 import Title from "../components/Title";
 import { assets } from "../assets/assets";
 import Newsletter from "../components/Newsletter";
-import { Store, MapPin, Phone, Mail, Clock, Briefcase, Handshake } from "lucide-react";
+import {
+  Store,
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Briefcase,
+  Handshake,
+} from "lucide-react";
 
 const Contact = () => {
   return (

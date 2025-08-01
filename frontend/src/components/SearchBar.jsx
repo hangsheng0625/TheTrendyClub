@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import { useLocation } from "react-router-dom";
+import { User, Users, Baby } from "lucide-react";
 
 const SearchBar = () => {
   const { search, setSearch, showSearch, setShowSearch } =
@@ -90,16 +91,18 @@ const SearchBar = () => {
             </h3>
             <div className="grid grid-cols-3 gap-3">
               {[
-                { name: "Men", emoji: "👨" },
-                { name: "Women", emoji: "👩" },
-                { name: "Kids", emoji: "👶" },
+                { name: "Men", icon: User },
+                { name: "Women", icon: Users },
+                { name: "Kids", icon: Baby },
               ].map((category, index) => (
                 <button
                   key={index}
                   onClick={() => setSearch(category.name)}
                   className="p-3 bg-gradient-to-br from-gray-50 to-gray-100 hover:from-indigo-50 hover:to-purple-50 border border-gray-200 hover:border-indigo-300 rounded-lg transition-all duration-200 hover:scale-105"
                 >
-                  <div className="text-2xl mb-1">{category.emoji}</div>
+                  <div className="text-2xl mb-1">
+                    <category.icon className="w-6 h-6 mx-auto text-gray-600" />
+                  </div>
                   <div className="text-sm font-medium text-gray-700">
                     {category.name}
                   </div>

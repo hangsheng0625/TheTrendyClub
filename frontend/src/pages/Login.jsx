@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Lock, Truck, Heart, Rocket, Sparkles } from "lucide-react";
 
 const Login = () => {
   const [currentState, setCurrentState] = useState("Login");
@@ -159,9 +160,15 @@ const Login = () => {
                 <span>Processing...</span>
               </div>
             ) : currentState === "Login" ? (
-              "🚀 Sign In"
+              <>
+                <Rocket className="w-5 h-5 mr-2" />
+                Sign In
+              </>
             ) : (
-              "✨ Create Account"
+              <>
+                <Sparkles className="w-5 h-5 mr-2" />
+                Create Account
+              </>
             )}
           </button>
 
@@ -190,15 +197,15 @@ const Login = () => {
         <div className="mt-8 pt-6 border-t border-gray-200">
           <div className="grid grid-cols-3 gap-4 text-center text-xs text-gray-500">
             <div className="flex flex-col items-center gap-1">
-              <span className="text-lg">🔒</span>
+                                    <Lock className="w-5 h-5" />
               <span>Secure</span>
             </div>
             <div className="flex flex-col items-center gap-1">
-              <span className="text-lg">🚚</span>
+                                    <Truck className="w-5 h-5" />
               <span>Free Shipping</span>
             </div>
             <div className="flex flex-col items-center gap-1">
-              <span className="text-lg">💖</span>
+                                    <Heart className="w-5 h-5" />
               <span>Loved by 10K+</span>
             </div>
           </div>

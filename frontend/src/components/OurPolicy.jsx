@@ -1,5 +1,6 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import { Lock, Truck, Star, Trophy } from "lucide-react";
 
 const OurPolicy = () => {
   return (
@@ -115,19 +116,19 @@ const OurPolicy = () => {
       <div className="mt-16 text-center">
         <div className="flex justify-center items-center gap-8 flex-wrap">
           <div className="flex items-center gap-2">
-            <span className="text-2xl">🔒</span>
+            <Lock className="w-6 h-6" />
             <span className="text-sm text-grey-600">Secure Payment</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-2xl">🚚</span>
+            <Truck className="w-6 h-6" />
             <span className="text-sm text-grey-600">Free Shipping</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-2xl">⭐</span>
+            <Star className="w-6 h-6" />
             <span className="text-sm text-grey-600">4.9/5 Rating</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-2xl">🏆</span>
+            <Trophy className="w-6 h-6" />
             <span className="text-sm text-grey-600">Award Winning</span>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AtSign, Mail, Sparkles, Users, Send, Lock } from "lucide-react";
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");
@@ -26,7 +27,7 @@ const Newsletter = () => {
           {/* Header */}
           <div className="mb-6">
             <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-grey-600 to-grey-800 rounded-full flex items-center justify-center">
-              <span className="text-white text-xl font-bold">@</span>
+              <AtSign className="text-white text-xl font-bold w-6 h-6" />
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-grey-800 mb-4 font-playfair">
               Stay in the Loop!
@@ -56,7 +57,7 @@ const Newsletter = () => {
                   required
                 />
                 <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-grey-400">
-                  ✉️
+                  <Mail className="w-5 h-5" />
                 </span>
               </div>
               <button
@@ -69,7 +70,7 @@ const Newsletter = () => {
           ) : (
             <div className="animate-fadeInUp">
               <div className="bg-grey-100 border border-grey-300 rounded-lg p-6 max-w-md mx-auto">
-                <span className="text-3xl block mb-2">✨</span>
+                <Sparkles className="w-8 h-8" />
                 <h3 className="text-grey-800 font-bold text-lg mb-1">
                   Welcome aboard!
                 </h3>
@@ -83,15 +84,15 @@ const Newsletter = () => {
           {/* Social proof */}
           <div className="mt-12 flex justify-center items-center gap-8 flex-wrap text-sm text-grey-600">
             <div className="flex items-center gap-2">
-              <span className="text-2xl">👥</span>
+              <Users className="w-6 h-6" />
               <span>50K+ Subscribers</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-2xl">📮</span>
+              <Send className="w-6 h-6" />
               <span>Weekly Updates</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-2xl">🔒</span>
+              <Lock className="w-6 h-6" />
               <span>No Spam Promise</span>
             </div>
           </div>

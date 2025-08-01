@@ -2,7 +2,16 @@ import React from "react";
 import Title from "../components/Title";
 import { assets } from "../assets/assets";
 import Newsletter from "../components/Newsletter";
-import { Sparkles, Star, Handshake, Trophy, Rocket, Gift, Globe, Award } from "lucide-react";
+import {
+  Sparkles,
+  Star,
+  Handshake,
+  Trophy,
+  Rocket,
+  Gift,
+  Globe,
+  Award,
+} from "lucide-react";
 
 const About = () => {
   return (
@@ -91,7 +100,7 @@ const About = () => {
 
             <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-grey-200 hover:border-grey-300">
               <div className="w-16 h-16 bg-gradient-to-br from-grey-600 to-grey-800 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <span className="text-2xl text-white">🌟</span>
+                <Star className="text-white w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold text-grey-800 mb-4 text-center">
                 Customer-Centric Approach
@@ -106,7 +115,7 @@ const About = () => {
 
             <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-grey-200 hover:border-grey-300">
               <div className="w-16 h-16 bg-gradient-to-br from-grey-600 to-grey-800 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <span className="text-2xl text-white">🤝</span>
+                <Handshake className="text-white w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold text-grey-800 mb-4 text-center">
                 Exceptional Service
@@ -135,7 +144,7 @@ const About = () => {
             <div className="bg-gradient-to-br from-grey-100 to-grey-200 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-grey-600 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-white font-bold">🏆</span>
+                  <Trophy className="text-white w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-grey-800">
                   Premium Quality
@@ -149,16 +158,16 @@ const About = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-amber-100 to-yellow-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="bg-gradient-to-br from-grey-100 to-grey-200 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-amber-700 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-white font-bold">🚀</span>
+                <div className="w-12 h-12 bg-grey-600 rounded-full flex items-center justify-center mr-4">
+                  <Rocket className="text-white w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-amber-900">
+                <h3 className="text-lg font-bold text-grey-800">
                   Trend-Forward Styles
                 </h3>
               </div>
-              <p className="text-amber-800 leading-relaxed">
+              <p className="text-grey-700 leading-relaxed">
                 Stay ahead of the fashion curve with our carefully curated
                 collections. Our design team constantly monitors global trends
                 and translates them into accessible, wearable pieces for the
@@ -166,16 +175,16 @@ const About = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-amber-100 to-yellow-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="bg-gradient-to-br from-grey-100 to-grey-200 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-amber-700 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-white font-bold">💝</span>
+                <div className="w-12 h-12 bg-grey-600 rounded-full flex items-center justify-center mr-4">
+                  <Gift className="text-white w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-amber-900">
+                <h3 className="text-lg font-bold text-grey-800">
                   Personalized Experience
                 </h3>
               </div>
-              <p className="text-amber-800 leading-relaxed">
+              <p className="text-grey-700 leading-relaxed">
                 From size recommendations to style suggestions, we use
                 technology and human expertise to create a shopping experience
                 that feels tailored specifically to your preferences and
@@ -183,48 +192,48 @@ const About = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-amber-100 to-yellow-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="bg-gradient-to-br from-grey-100 to-grey-200 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-amber-700 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-white font-bold">🌍</span>
+                <div className="w-12 h-12 bg-grey-600 rounded-full flex items-center justify-center mr-4">
+                  <Globe className="text-white w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-amber-900">
+                <h3 className="text-lg font-bold text-grey-800">
                   Global Accessibility
                 </h3>
               </div>
-              <p className="text-amber-800 leading-relaxed">
+              <p className="text-grey-700 leading-relaxed">
                 Fashion knows no boundaries. With worldwide shipping, multiple
                 payment options, and localized customer service, we make it easy
                 for fashion enthusiasts everywhere to access our collections.
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-amber-100 to-yellow-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="bg-gradient-to-br from-grey-100 to-grey-200 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-amber-700 rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-grey-600 rounded-full flex items-center justify-center mr-4">
                   <span className="text-white font-bold">♻️</span>
                 </div>
-                <h3 className="text-lg font-bold text-amber-900">
+                <h3 className="text-lg font-bold text-grey-800">
                   Sustainable Practices
                 </h3>
               </div>
-              <p className="text-amber-800 leading-relaxed">
+              <p className="text-grey-700 leading-relaxed">
                 We're committed to responsible fashion. From eco-friendly
                 packaging to ethical sourcing practices, we continuously work to
                 minimize our environmental impact while maximizing style.
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-amber-100 to-yellow-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <div className="bg-gradient-to-br from-grey-100 to-grey-200 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-amber-700 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-white font-bold">⭐</span>
+                <div className="w-12 h-12 bg-grey-600 rounded-full flex items-center justify-center mr-4">
+                  <Award className="text-white w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-bold text-amber-900">
+                <h3 className="text-lg font-bold text-grey-800">
                   Community-Driven
                 </h3>
               </div>
-              <p className="text-amber-800 leading-relaxed">
+              <p className="text-grey-700 leading-relaxed">
                 Join a community of fashion enthusiasts who share styling tips,
                 reviews, and inspiration. Our customers don't just buy clothes;
                 they become part of a global style movement.
