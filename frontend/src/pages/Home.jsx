@@ -7,12 +7,14 @@ import Newsletter from '../components/Newsletter'
 
 const Home = () => {
   return (
-    <div>
+    <div className="w-full">
         <Hero/>
-        <LatestCollection/>
-        <BestSeller/>
-        <OurPolicy/>
-        <Newsletter/>
+        <div className="px-4 sm:px-8 lg:px-16">
+          <LatestCollection/>
+          <BestSeller/>
+          <OurPolicy/>
+          <Newsletter/>
+        </div>
     </div>
   )
 }

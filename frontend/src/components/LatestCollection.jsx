@@ -3,7 +3,6 @@ import { ShopContext } from "../context/ShopContext";
 import Title from "./Title";
 import ProductItem from "./ProductItem";
 
-
 const LatestCollection = () => {
   const { products } = useContext(ShopContext);
   const [latestProducts, setLatestProducts] = useState([]);
@@ -16,7 +15,7 @@ const LatestCollection = () => {
   }, [products]);
 
   return (
-    <div className="my-20 px-4 sm:px-0 bg-gradient-to-br from-amber-50 via-white to-yellow-50 py-16 rounded-3xl">
+    <div className="my-20 bg-gradient-to-br from-white via-grey-50 to-grey-100 py-16 rounded-3xl w-full">
       {/* Section Header */}
       <div
         className={`text-center py-12 animate-fadeInUp ${
@@ -26,21 +25,23 @@ const LatestCollection = () => {
         <div className="mb-6">
           <Title text1={"LATEST"} text2={"COLLECTIONS"} />
         </div>
-        <p className="max-w-2xl mx-auto text-lg text-amber-900 leading-relaxed mb-8">
-          Discover our newest arrivals, carefully curated to bring you the latest trends in fashion. Each piece is selected for its unique style and exceptional quality.
+        <p className="max-w-2xl mx-auto text-lg text-grey-700 leading-relaxed mb-8 text-body-primary">
+          Discover our newest arrivals, carefully curated to bring you the
+          latest trends in fashion. Each piece is selected for its unique style
+          and exceptional quality.
         </p>
         {/* Animated loading dots */}
         <div className="flex justify-center items-center gap-2 mb-8">
           <div
-            className="w-2 h-2 bg-amber-700 rounded-full animate-bounce"
+            className="w-2 h-2 bg-grey-600 rounded-full animate-bounce"
             style={{ animationDelay: "0s" }}
           ></div>
           <div
-            className="w-2 h-2 bg-amber-900 rounded-full animate-bounce"
+            className="w-2 h-2 bg-grey-800 rounded-full animate-bounce"
             style={{ animationDelay: "0.2s" }}
           ></div>
           <div
-            className="w-2 h-2 bg-amber-700 rounded-full animate-bounce"
+            className="w-2 h-2 bg-grey-600 rounded-full animate-bounce"
             style={{ animationDelay: "0.4s" }}
           ></div>
         </div>

@@ -29,7 +29,9 @@ const BestSeller = () => {
           <Title text1={"BEST"} text2={"SELLERS"} />
         </div>
         <p className="max-w-2xl mx-auto text-lg text-amber-900 leading-relaxed mb-8">
-          Discover the pieces that define style and excellence. These customer favorites showcase our commitment to quality, comfort, and contemporary fashion that speaks to modern trendsetters.
+          Discover the pieces that define style and excellence. These customer
+          favorites showcase our commitment to quality, comfort, and
+          contemporary fashion that speaks to modern trendsetters.
         </p>
 
         {/* Stats bar */}

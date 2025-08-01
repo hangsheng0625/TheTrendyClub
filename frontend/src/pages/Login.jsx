@@ -60,10 +60,10 @@ const Login = () => {
   }, [token]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-purple-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-grey-50 to-grey-100 px-4 w-full">
       {/* Background decorations */}
-      <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-indigo-200 to-purple-200 rounded-full opacity-20 animate-pulse-slow"></div>
-      <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-pink-200 to-red-200 rounded-full opacity-20 animate-pulse-slow"></div>
+      <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-grey-300/20 to-grey-400/20 rounded-full opacity-30 animate-pulse-slow"></div>
+      <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-grey-200/20 to-grey-300/20 rounded-full opacity-20 animate-pulse-slow"></div>
 
       <div className="card max-w-md w-full p-8 relative z-10">
         {/* Header */}
