@@ -12,6 +12,7 @@ const Collection = () => {
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState("relevant");
+  const [isLoading, setIsLoading] = useState(true);
 
   // Toggle filter checkboxes
   const toggleItemInArray = (item, array, setter) => {
@@ -43,6 +44,7 @@ const Collection = () => {
     }
 
     setFilteredProducts(result);
+    setIsLoading(false);
   };
 
   // Sorting logic
@@ -57,12 +59,24 @@ const Collection = () => {
   };
 
   useEffect(() => {
-    applyFilter();
+    if (products && products.length > 0) {
+      applyFilter();
+    }
   }, [category, subCategory, search, showSearch, products]);
 
   useEffect(() => {
-    applySort();
+    if (filteredProducts.length > 0) {
+      applySort();
+    }
   }, [sortType]);
+
+  // Initialize products when component mounts or products change
+  useEffect(() => {
+    if (products && products.length > 0 && filteredProducts.length === 0 && category.length === 0 && subCategory.length === 0) {
+      setFilteredProducts([...products]);
+      setIsLoading(false);
+    }
+  }, [products]);
 
   return (
     <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 py-10 border-t max-w-7xl mx-auto px-4">
@@ -129,7 +143,14 @@ const Collection = () => {
 
         {/* Products */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {filteredProducts.length > 0 ? (
+          {isLoading ? (
+            <div className="col-span-full flex justify-center items-center py-20">
+              <div className="flex flex-col items-center gap-4">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-600"></div>
+                <p className="text-gray-500">Loading products...</p>
+              </div>
+            </div>
+          ) : filteredProducts.length > 0 ? (
             filteredProducts.map((item) => (
               <ProductItem
                 key={item._id}
@@ -140,9 +161,10 @@ const Collection = () => {
               />
             ))
           ) : (
-            <p className="text-gray-500 col-span-full text-center">
-              No products match your filters.
-            </p>
+            <div className="col-span-full text-center py-20">
+              <p className="text-gray-500 text-lg mb-2">No products match your filters.</p>
+              <p className="text-gray-400 text-sm">Try adjusting your search criteria or browse all products.</p>
+            </div>
           )}
         </div>
       </main>
