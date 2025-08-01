@@ -1,21 +1,48 @@
-import React from 'react'
-import { assets } from '../assets/assets'
+import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react'; // sidebar icons
+import { assets } from '../assets/assets';
 
-const Navbar = ({setToken}) => {
+const Navbar = ({ setToken }) => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(prev => !prev);
+    // Optional: emit to parent or context for sidebar control
+  };
+
   return (
-    <div className='flex items-center py-4 px-[4%] justify-between bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-sm'>
-        <img className='w-[max(10%, 80px)]' src={assets.logo} alt="Logo" />
-        <div className="flex items-center gap-4">
-          <h2 className="text-title text-xl hidden sm:block">Admin Panel</h2>
-          <button 
-            onClick={()=>setToken('')}
-            className='bg-gray-800 hover:bg-gray-700 text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-300 hover:shadow-lg'
-          >
-            Logout
-          </button>
-        </div>
-    </div>
-  )
-}
+    <header className="sticky top-0 z-20 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
+      <div className="relative flex items-center justify-between px-3 py-2 sm:px-4 sm:py-3 lg:px-6">
 
-export default Navbar
+        {/* Sidebar Toggle Icon (Left) */}
+        <button
+          onClick={toggleSidebar}
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-700 hover:text-black"
+        >
+          {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+
+        {/* Center Text */}
+        <div className="mx-auto text-center leading-tight">
+          <h2 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-800">
+            Admin Panel
+          </h2>
+          <p className="text-xs text-gray-500 hidden sm:block">
+            Dashboard Management
+          </p>
+        </div>
+
+        {/* Logo (Right) */}
+        <div className="absolute right-3 top-1/2 -translate-y-1/2">
+          <img
+            src={assets.logo}
+            alt="Logo"
+            className="h-6 w-auto sm:h-8 lg:h-10"
+          />
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Navbar;

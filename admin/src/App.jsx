@@ -27,21 +27,21 @@ const App = () => {
       ? <Login setToken={setToken} /> 
       : <>
       <Navbar setToken={setToken}/>
-      <hr className="border-gray-200" />
-      <div className='flex w-full'>
-        <Sidebar/>
-        <div className='w-[70%] mx-auto ml-[max(5vw, 25px)] my-8 text-body-primary'>
-          <Routes>
-            <Route path='/add' element={<Add token={token}></Add>}/>
-            <Route path='/list' element={<List token={token}></List>}/>
-            <Route path='/orders' element={<Orders token={token}></Orders>}/>
-          </Routes>
-        </div>
+      <div className='flex h-[calc(100vh-60px)] sm:h-[calc(100vh-70px)] lg:h-[calc(100vh-80px)]'>
+        <Sidebar setToken={setToken}/>
+        <main className='flex-1 overflow-auto bg-gray-50/30'>
+          <div className='p-3 sm:p-4 lg:p-8'>
+            <Routes>
+              <Route path='/add' element={<Add token={token}></Add>}/>
+              <Route path='/list' element={<List token={token}></List>}/>
+              <Route path='/orders' element={<Orders token={token}></Orders>}/>
+            </Routes>
+          </div>
+        </main>
       </div>
       </>
       }
     </div>
-    
   )
 }
 
