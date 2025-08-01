@@ -3,6 +3,7 @@ import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 import { assets } from "../assets/assets";
 import CartTotal from "../components/CartTotal";
+import { Trash2, ShoppingCart } from "lucide-react";
 
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity, navigate } =
@@ -28,12 +29,12 @@ const Cart = () => {
   }, [cartItems, products]);
 
   return (
-    <div className="border-t pt-14">
-      <div className="text-2xl mb-3">
+    <div className="border-t pt-8 sm:pt-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="text-xl sm:text-2xl mb-6">
         <Title text1="YOUR" text2="CART" />
       </div>
 
-      <div>
+      <div className="space-y-4">
         {cartData.map((item, index) => {
           const productData = products.find(
             (product) => product._id === item._id
@@ -41,68 +42,147 @@ const Cart = () => {
           return (
             <div
               key={index}
-              className="py-4 border-t border-b text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4"
+              className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="flex items-start gap-6">
-                <img
-                  className="w-16 sm:w-20"
-                  src={productData.image[0]}
-                  alt=""
-                />
-                <div>
-                  <p className="text-xs sm:text-lg font-medium">
-                    {productData.name}
-                  </p>
-                  <div className="flex items-center gap-5 mt-2">
-                    <p>
-                      {currency}
-                      {productData.price}
+              {/* Mobile Layout */}
+              <div className="flex flex-col sm:hidden gap-4">
+                <div className="flex gap-4">
+                  <img
+                    className="w-20 h-20 object-cover rounded-lg"
+                    src={productData.image[0]}
+                    alt=""
+                  />
+                  <div className="flex-1">
+                    <p className="font-semibold text-gray-800 text-sm mb-2">
+                      {productData.name}
                     </p>
-                    <p className="px-2 sm:px-3 sm:py-1 border bg-slate-50">
-                      {item.size}
-                    </p>
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-lg font-bold text-gray-900">
+                        {currency}{productData.price}
+                      </span>
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded border">
+                        Size: {item.size}
+                      </span>
+                    </div>
                   </div>
                 </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <label className="text-sm font-medium text-gray-700">Qty:</label>
+                    <input
+                      onChange={(e) =>
+                        e.target.value === "" || e.target.value === "0"
+                          ? null
+                          : updateQuantity(
+                              item._id,
+                              item.size,
+                              Number(e.target.value)
+                            )
+                      }
+                      className="border border-gray-300 rounded px-3 py-2 w-16 text-center"
+                      type="number"
+                      min={1}
+                      defaultValue={item.quantity}
+                    />
+                  </div>
+                  <button
+                    onClick={() => updateQuantity(item._id, item.size, 0)}
+                    className="p-2 text-red-500 hover:bg-red-50 rounded-full transition-colors"
+                  >
+                    <Trash2 className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
-              <input
-                onChange={(e) =>
-                  e.target.value === "" || e.target.value === "0"
-                    ? null
-                    : updateQuantity(
-                        item._id,
-                        item.size,
-                        Number(e.target.value)
-                      )
-                }
-                className="border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1"
-                type="number"
-                min={1}
-                defaultValue={item.quantity}
-              />
-              <img
-                onClick={() => updateQuantity(item._id, item.size, 0)}
-                className="w-4 mr-4 sm:w-5 cursor-pointer"
-                src={assets.bin_icon}
-                alt=""
-              />
+
+              {/* Desktop Layout */}
+              <div className="hidden sm:grid grid-cols-[2fr_1fr_100px_50px] items-center gap-6">
+                <div className="flex items-center gap-4">
+                  <img
+                    className="w-20 h-20 object-cover rounded-lg"
+                    src={productData.image[0]}
+                    alt=""
+                  />
+                  <div>
+                    <p className="font-semibold text-gray-800 mb-2">
+                      {productData.name}
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <span className="text-lg font-bold text-gray-900">
+                        {currency}{productData.price}
+                      </span>
+                      <span className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded border">
+                        {item.size}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <span className="text-lg font-semibold text-gray-800">
+                    {currency}{(productData.price * item.quantity).toFixed(2)}
+                  </span>
+                </div>
+                <div className="flex justify-center">
+                  <input
+                    onChange={(e) =>
+                      e.target.value === "" || e.target.value === "0"
+                        ? null
+                        : updateQuantity(
+                            item._id,
+                            item.size,
+                            Number(e.target.value)
+                          )
+                    }
+                    className="border border-gray-300 rounded px-3 py-2 w-16 text-center"
+                    type="number"
+                    min={1}
+                    defaultValue={item.quantity}
+                  />
+                </div>
+                <div className="flex justify-center">
+                  <button
+                    onClick={() => updateQuantity(item._id, item.size, 0)}
+                    className="p-2 text-red-500 hover:bg-red-50 rounded-full transition-colors"
+                  >
+                    <Trash2 className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
             </div>
           );
         })}
       </div>
 
-      <div className="flex justify-end my-20">
-        <div className="w-full sm:w-[450px]">
-          <CartTotal />
-          <div className="w-full text-end">
-            <button
-              onClick={() => navigate("/place-order")}
-              className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700"
-            >
-              PROCEED TO CHECKOUT
-            </button>
+      {cartData.length === 0 && (
+        <div className="text-center py-16">
+          <div className="mb-4">
+            <ShoppingCart className="w-24 h-24 mx-auto text-gray-300" />
+          </div>
+          <p className="text-gray-500 text-lg mb-4">Your cart is empty</p>
+          <button
+            onClick={() => navigate("/collection")}
+            className="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            Continue Shopping
+          </button>
+        </div>
+      )}
+
+      {cartData.length > 0 && (
+        <div className="mt-12 flex flex-col lg:flex-row gap-8">
+          <div className="flex-1"></div>
+          <div className="w-full lg:w-[450px]">
+            <CartTotal />
+            <div className="mt-6">
+              <button
+                onClick={() => navigate("/place-order")}
+                className="w-full bg-gray-800 text-white px-8 py-4 rounded-lg text-sm font-semibold uppercase tracking-wide hover:bg-gray-700 transition-colors"
+              >
+                Proceed to Checkout
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
