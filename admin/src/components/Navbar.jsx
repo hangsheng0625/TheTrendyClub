@@ -36,7 +36,7 @@ const Navbar = ({ setToken, sidebarOpen, setSidebarOpen }) => {
         {/* Logo (Right) */}
         <div className="flex items-center">
           <img
-            src={assets.logo}
+            src={assets.thetrendyclub}
             alt="Logo"
             className="h-6 w-auto sm:h-8 lg:h-10"
           />
