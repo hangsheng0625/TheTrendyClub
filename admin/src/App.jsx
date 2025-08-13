@@ -24,7 +24,7 @@ const App = () => {
 
   return (
     <div
-      className="min-h-screen"
+      className="h-screen"
       style={{
         background:
           "linear-gradient(135deg, #ffffff 0%, #f8f9fa 25%, #e9ecef 50%, #dee2e6 75%, #adb5bd 100%)",
@@ -46,8 +46,8 @@ const App = () => {
               isOpen={sidebarOpen}
               setIsOpen={setSidebarOpen}
             />
-            <main className="flex-1 overflow-auto bg-gray-50/30">
-              <div className="p-3 sm:p-4 lg:p-8">
+            <main className="flex-1 bg-gray-50/30 overflow-y-auto">
+              <div className="p-3 sm:p-4 lg:p-8 min-h-full">
                 <Routes>
                   <Route path="/add" element={<Add token={token}></Add>} />
                   <Route path="/list" element={<List token={token}></List>} />
