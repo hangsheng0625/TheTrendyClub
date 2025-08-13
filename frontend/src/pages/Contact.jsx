@@ -23,10 +23,14 @@ const Contact = () => {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto my-16 px-4 sm:px-8 lg:px-16 flex flex-col justify-center lg:flex-row gap-12 mb-28 animate-fadeInUp"
-           style={{animationDelay: '0.2s', animationFillMode: 'both'}}>
-        <div className="lg:w-1/2 animate-slideInLeft"
-             style={{animationDelay: '0.4s', animationFillMode: 'both'}}>
+      <div
+        className="max-w-6xl mx-auto my-16 px-4 sm:px-8 lg:px-16 flex flex-col justify-center lg:flex-row gap-12 mb-28 animate-fadeInUp"
+        style={{ animationDelay: "0.2s", animationFillMode: "both" }}
+      >
+        <div
+          className="lg:w-1/2 animate-slideInLeft"
+          style={{ animationDelay: "0.4s", animationFillMode: "both" }}
+        >
           <img
             className="w-full rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
             src={assets.contact_img}
@@ -34,8 +38,10 @@ const Contact = () => {
           />
         </div>
 
-        <div className="lg:w-1/2 flex flex-col justify-center gap-8 animate-fadeInUp"
-             style={{animationDelay: '0.6s', animationFillMode: 'both'}}>
+        <div
+          className="lg:w-1/2 flex flex-col justify-center gap-8 animate-fadeInUp"
+          style={{ animationDelay: "0.6s", animationFillMode: "both" }}
+        >
           <div className="bg-white p-8 rounded-2xl shadow-lg border border-grey-200">
             <h3 className="font-bold text-2xl text-grey-800 mb-6 flex items-center">
               <span className="w-8 h-8 bg-grey-600 rounded-full flex items-center justify-center mr-3">

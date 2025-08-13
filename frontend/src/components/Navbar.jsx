@@ -29,7 +29,7 @@ const Navbar = () => {
           to="/"
           className="transform transition-transform duration-300 hover:scale-105"
         >
-          <img src={assets.logo} className="w-32 sm:w-36" alt="Logo" />
+          <img src={assets.thetrendyclub} className="w-32 sm:w-36" alt="Logo" />
         </Link>
 
         {/* Desktop Navigation - Hidden on Mobile */}

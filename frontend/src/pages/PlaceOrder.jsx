@@ -155,154 +155,162 @@ const PlaceOrder = () => {
           <div className="text-xl sm:text-2xl mb-6">
             <Title text1={"DELIVERY"} text2={"INFORMATION"}></Title>
           </div>
-        <div className="flex gap-3">
+          <div className="flex gap-3">
+            <input
+              required
+              onChange={onChangeHandler}
+              name="firstName"
+              value={formData.firstName}
+              className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              type="text"
+              placeholder="First name"
+            />
+            <input
+              required
+              onChange={onChangeHandler}
+              name="lastName"
+              value={formData.lastName}
+              className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              type="text"
+              placeholder="Last name"
+            />
+          </div>
           <input
             required
             onChange={onChangeHandler}
-            name="firstName"
-            value={formData.firstName}
+            name="email"
+            value={formData.email}
             className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-            type="text"
-            placeholder="First name"
+            type="email"
+            placeholder="Email address"
           />
           <input
             required
             onChange={onChangeHandler}
-            name="lastName"
-            value={formData.lastName}
+            name="street"
+            value={formData.street}
             className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
             type="text"
-            placeholder="Last name"
+            placeholder="Street"
           />
-        </div>
-        <input
-          required
-          onChange={onChangeHandler}
-          name="email"
-          value={formData.email}
-          className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-          type="email"
-          placeholder="Email address"
-        />
-        <input
-          required
-          onChange={onChangeHandler}
-          name="street"
-          value={formData.street}
-          className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-          type="text"
-          placeholder="Street"
-        />
 
-        <div className="flex gap-3">
-          <input
-            required
-            onChange={onChangeHandler}
-            name="city"
-            value={formData.city}
-            className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-            type="text"
-            placeholder="City"
-          />
-          <input
-            required
-            onChange={onChangeHandler}
-            name="state"
-            value={formData.state}
-            className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-            type="text"
-            placeholder="State"
-          />
-        </div>
+          <div className="flex gap-3">
+            <input
+              required
+              onChange={onChangeHandler}
+              name="city"
+              value={formData.city}
+              className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              type="text"
+              placeholder="City"
+            />
+            <input
+              required
+              onChange={onChangeHandler}
+              name="state"
+              value={formData.state}
+              className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              type="text"
+              placeholder="State"
+            />
+          </div>
 
-        <div className="flex gap-3">
+          <div className="flex gap-3">
+            <input
+              required
+              onChange={onChangeHandler}
+              name="zipcode"
+              value={formData.zipcode}
+              className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              type="number"
+              placeholder="Zipcode"
+            />
+            <input
+              required
+              onChange={onChangeHandler}
+              name="country"
+              value={formData.country}
+              className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              type="text"
+              placeholder="Country"
+            />
+          </div>
+
           <input
             required
             onChange={onChangeHandler}
-            name="zipcode"
-            value={formData.zipcode}
+            name="phone"
+            value={formData.phone}
             className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
             type="number"
-            placeholder="Zipcode"
-          />
-          <input
-            required
-            onChange={onChangeHandler}
-            name="country"
-            value={formData.country}
-            className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-            type="text"
-            placeholder="Country"
+            placeholder="Phone"
           />
         </div>
 
-        <input
-          required
-          onChange={onChangeHandler}
-          name="phone"
-          value={formData.phone}
-          className="border border-gray-300 rounded py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-          type="number"
-          placeholder="Phone"
-        />
-      </div>
+        {/* {----------------------------- Right Side ----------------------} */}
+        <div className="w-full lg:max-w-[400px] animate-slideInRight">
+          <div className="sticky top-8">
+            <CartTotal></CartTotal>
+          </div>
 
-      {/* {----------------------------- Right Side ----------------------} */}
-      <div className="w-full lg:max-w-[400px] animate-slideInRight">
-        <div className="sticky top-8">
-          <CartTotal></CartTotal>
-        </div>
-
-        <div className="mt-8">
-          <Title text1={"PAYMENT"} text2={"METHOD"}></Title>
-          <div className="flex gap-3 flex-col sm:flex-row lg:flex-col mt-4">
-            {/* {------------------------ Display payment method -----------------------------} */}
-            <div
-              onClick={() => setMethod("stripe")}
-              className={`flex items-center gap-3 border-2 p-3 px-4 cursor-pointer rounded-lg transition-all ${
-                method === "stripe" 
-                  ? "border-green-400 bg-green-50" 
-                  : "border-gray-200 hover:border-gray-300"
-              }`}
-            >
-              <p
-                className={`min-w-3.5 h-3.5 border-2 rounded-full ${
-                  method === "stripe" ? "bg-green-400 border-green-400" : "border-gray-300"
+          <div className="mt-8">
+            <Title text1={"PAYMENT"} text2={"METHOD"}></Title>
+            <div className="flex gap-3 flex-col sm:flex-row lg:flex-col mt-4">
+              {/* {------------------------ Display payment method -----------------------------} */}
+              <div
+                onClick={() => setMethod("stripe")}
+                className={`flex items-center gap-3 border-2 p-3 px-4 cursor-pointer rounded-lg transition-all ${
+                  method === "stripe"
+                    ? "border-green-400 bg-green-50"
+                    : "border-gray-200 hover:border-gray-300"
                 }`}
-              ></p>
-              <img className="h-5 mx-2" src={assets.stripe_logo} alt="Stripe" />
-            </div>
+              >
+                <p
+                  className={`min-w-3.5 h-3.5 border-2 rounded-full ${
+                    method === "stripe"
+                      ? "bg-green-400 border-green-400"
+                      : "border-gray-300"
+                  }`}
+                ></p>
+                <img
+                  className="h-5 mx-2"
+                  src={assets.stripe_logo}
+                  alt="Stripe"
+                />
+              </div>
 
-            <div
-              onClick={() => setMethod("cod")}
-              className={`flex items-center gap-3 border-2 p-3 px-4 cursor-pointer rounded-lg transition-all ${
-                method === "cod" 
-                  ? "border-green-400 bg-green-50" 
-                  : "border-gray-200 hover:border-gray-300"
-              }`}
-            >
-              <p
-                className={`min-w-3.5 h-3.5 border-2 rounded-full ${
-                  method === "cod" ? "bg-green-400 border-green-400" : "border-gray-300"
+              <div
+                onClick={() => setMethod("cod")}
+                className={`flex items-center gap-3 border-2 p-3 px-4 cursor-pointer rounded-lg transition-all ${
+                  method === "cod"
+                    ? "border-green-400 bg-green-50"
+                    : "border-gray-200 hover:border-gray-300"
                 }`}
-              ></p>
-              <p className="text-gray-700 text-sm font-medium mx-2">
-                CASH ON DELIVERY
-              </p>
+              >
+                <p
+                  className={`min-w-3.5 h-3.5 border-2 rounded-full ${
+                    method === "cod"
+                      ? "bg-green-400 border-green-400"
+                      : "border-gray-300"
+                  }`}
+                ></p>
+                <p className="text-gray-700 text-sm font-medium mx-2">
+                  CASH ON DELIVERY
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="w-full mt-8">
-          <button
-            type="submit"
-            className="w-full bg-black text-white py-3 text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 uppercase tracking-wide"
-          >
-            PLACE ORDER
-          </button>
+          <div className="w-full mt-8">
+            <button
+              type="submit"
+              className="w-full bg-black text-white py-3 text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 uppercase tracking-wide"
+            >
+              PLACE ORDER
+            </button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
     </div>
   );
 };

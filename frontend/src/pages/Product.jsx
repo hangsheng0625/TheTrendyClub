@@ -50,7 +50,9 @@ const Product = () => {
 
         {/* {-------------Product Information-------------} */}
         <div className="flex-1 mt-6 lg:mt-0 animate-slideInRight">
-          <h1 className="font-medium text-xl sm:text-2xl mt-2">{productData.name}</h1>
+          <h1 className="font-medium text-xl sm:text-2xl mt-2">
+            {productData.name}
+          </h1>
 
           <div className="flex items-center gap-1 mt-2">
             <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
@@ -78,7 +80,9 @@ const Product = () => {
                   key={index}
                   onClick={() => setSize(item)}
                   className={`border py-2 px-4 bg-gray-100 rounded-md transition-colors hover:bg-gray-200 ${
-                    item === size ? "border-orange-500 bg-orange-50" : "border-gray-300"
+                    item === size
+                      ? "border-orange-500 bg-orange-50"
+                      : "border-gray-300"
                   }`}
                 >
                   {item}
@@ -86,17 +90,17 @@ const Product = () => {
               ))}
             </div>
           </div>
-          <button 
+          <button
             onClick={() => addToCart(productData._id, size)}
             className="w-full sm:w-auto bg-black text-white px-8 py-3 text-sm rounded-md hover:bg-gray-800 transition-colors active:bg-gray-700"
-          > 
-            ADD TO CART 
+          >
+            ADD TO CART
           </button>
-          <hr className="mt-6 sm:mt-8 sm:w-4/5"/>
+          <hr className="mt-6 sm:mt-8 sm:w-4/5" />
           <div className="text-sm text-gray-500 mt-4 sm:mt-5 flex flex-col gap-2">
-              <p>✓ 100% Original product.</p>
-              <p>✓ Cash on delivery is available on this product.</p>
-              <p>✓ Easy return and exchange policy within 7 days.</p>
+            <p>✓ 100% Original product.</p>
+            <p>✓ Cash on delivery is available on this product.</p>
+            <p>✓ Easy return and exchange policy within 7 days.</p>
           </div>
         </div>
       </div>
@@ -105,27 +109,34 @@ const Product = () => {
       <div className="mt-12 sm:mt-20">
         <div className="flex">
           <b className="border px-3 sm:px-5 py-3 text-sm bg-white">
-              Description
+            Description
           </b>
           <p className="border px-3 sm:px-5 py-3 text-sm bg-gray-50 text-gray-600">
-              Reviews (122)
+            Reviews (122)
           </p>
         </div>
 
         <div className="flex flex-col gap-4 border px-4 sm:px-6 py-4 sm:py-6 text-sm text-gray-500 bg-gray-50">
-            <p className="leading-relaxed">
-              This is a high-quality product made from premium materials. It features excellent craftsmanship and attention to detail that ensures durability and comfort.
-            </p>
+          <p className="leading-relaxed">
+            This is a high-quality product made from premium materials. It
+            features excellent craftsmanship and attention to detail that
+            ensures durability and comfort.
+          </p>
 
-            <p className="leading-relaxed">
-              Perfect for everyday wear with a modern design that complements any style. Easy to care for and maintain, making it a great addition to your wardrobe.
-            </p>
+          <p className="leading-relaxed">
+            Perfect for everyday wear with a modern design that complements any
+            style. Easy to care for and maintain, making it a great addition to
+            your wardrobe.
+          </p>
         </div>
       </div>
-      
+
       {/* ---------------- {Display related products} -------------------*/}
       <div className="mt-12 sm:mt-16">
-        <RelatedProducts category={productData.category} subCategory={productData.subCategory}></RelatedProducts>
+        <RelatedProducts
+          category={productData.category}
+          subCategory={productData.subCategory}
+        ></RelatedProducts>
       </div>
     </div>
   ) : (

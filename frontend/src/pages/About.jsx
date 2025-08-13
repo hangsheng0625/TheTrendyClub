@@ -27,10 +27,14 @@ const About = () => {
         </div>
 
         {/* Main Content */}
-        <div className="max-w-6xl mx-auto my-16 flex flex-col lg:flex-row gap-12 items-center animate-fadeInUp"
-             style={{animationDelay: '0.2s', animationFillMode: 'both'}}>
-          <div className="lg:w-1/2 animate-slideInLeft"
-               style={{animationDelay: '0.4s', animationFillMode: 'both'}}>
+        <div
+          className="max-w-6xl mx-auto my-16 flex flex-col lg:flex-row gap-12 items-center animate-fadeInUp"
+          style={{ animationDelay: "0.2s", animationFillMode: "both" }}
+        >
+          <div
+            className="lg:w-1/2 animate-slideInLeft"
+            style={{ animationDelay: "0.4s", animationFillMode: "both" }}
+          >
             <img
               className="w-full rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
               src={assets.about_img}
@@ -38,8 +42,10 @@ const About = () => {
             />
           </div>
 
-          <div className="lg:w-1/2 flex flex-col justify-center gap-8 text-grey-800 animate-fadeInUp"
-               style={{animationDelay: '0.6s', animationFillMode: 'both'}}>
+          <div
+            className="lg:w-1/2 flex flex-col justify-center gap-8 text-grey-800 animate-fadeInUp"
+            style={{ animationDelay: "0.6s", animationFillMode: "both" }}
+          >
             <div className="space-y-6">
               <p className="text-lg leading-relaxed">
                 Founded with a vision to democratize fashion,{" "}
@@ -84,10 +90,14 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-20 animate-fadeInUp"
-               style={{animationDelay: '0.8s', animationFillMode: 'both'}}>
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-grey-200 hover:border-grey-300 animate-fadeInUp"
-                 style={{animationDelay: '1.0s', animationFillMode: 'both'}}>
+          <div
+            className="grid md:grid-cols-3 gap-8 mb-20 animate-fadeInUp"
+            style={{ animationDelay: "0.8s", animationFillMode: "both" }}
+          >
+            <div
+              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-grey-200 hover:border-grey-300 animate-fadeInUp"
+              style={{ animationDelay: "1.0s", animationFillMode: "both" }}
+            >
               <div className="w-16 h-16 bg-gradient-to-br from-grey-600 to-grey-800 rounded-full flex items-center justify-center mb-6 mx-auto">
                 <Sparkles className="text-white w-6 h-6" />
               </div>
@@ -103,8 +113,10 @@ const About = () => {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-grey-200 hover:border-grey-300 animate-fadeInUp"
-                 style={{animationDelay: '1.2s', animationFillMode: 'both'}}>
+            <div
+              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-grey-200 hover:border-grey-300 animate-fadeInUp"
+              style={{ animationDelay: "1.2s", animationFillMode: "both" }}
+            >
               <div className="w-16 h-16 bg-gradient-to-br from-grey-600 to-grey-800 rounded-full flex items-center justify-center mb-6 mx-auto">
                 <Star className="text-white w-6 h-6" />
               </div>
@@ -119,8 +131,10 @@ const About = () => {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-grey-200 hover:border-grey-300 animate-fadeInUp"
-                 style={{animationDelay: '1.4s', animationFillMode: 'both'}}>
+            <div
+              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-grey-200 hover:border-grey-300 animate-fadeInUp"
+              style={{ animationDelay: "1.4s", animationFillMode: "both" }}
+            >
               <div className="w-16 h-16 bg-gradient-to-br from-grey-600 to-grey-800 rounded-full flex items-center justify-center mb-6 mx-auto">
                 <Handshake className="text-white w-6 h-6" />
               </div>
