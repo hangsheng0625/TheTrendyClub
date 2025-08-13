@@ -1,51 +1,64 @@
 # TheTrendyClub E-Commerce Platform 🛍️
 
-<<<<<<< HEAD
-[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-6.0+-brightgreen.svg)](https://www.mongodb.com/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](#license)
-
-A modern full-stack e-commerce platform with customer storefront, admin dashboard, and REST API. Built with React, Node.js, Express, and MongoDB.
-=======
 TheTrendyClub is a comprehensive full-stack e-commerce web application featuring a modern customer-facing storefront, sophisticated admin dashboard, and robust backend API. Built with cutting-edge technologies including React, Node.js, Express, and MongoDB, this platform delivers a seamless shopping experience with professional-grade features.
->>>>>>> 1ef9f8dabe852fffe0cf8dc4acbddd2c8ade7a73
 
 ## 🌟 Live Demo
 
-- **Customer Store:** [https://thetrendyclub-frontend.vercel.app/](https://thetrendyclub-frontend.vercel.app/)
-- **Admin Dashboard:** [https://thetrendyclub-admin.vercel.app/](https://thetrendyclub-admin.vercel.app/)
-- **Backend API:** [https://thetrendyclub-backend.vercel.app/](https://thetrendyclub-backend.vercel.app/)
+- **🛒 Customer Store:** [https://thetrendyclub-frontend.vercel.app/](https://thetrendyclub-frontend.vercel.app/)
+- **⚡ Backend API:** [https://thetrendyclub-backend.vercel.app/](https://thetrendyclub-backend.vercel.app/)
+- **👨‍💼 Admin Dashboard:** [https://thetrendyclub-admin.vercel.app/](https://thetrendyclub-admin.vercel.app/)
 
-## ✨ Key Features
+## 📁 Project Architecture
 
-### 🛒 Customer Features
+```
+TheTrendyClub/
+├── 🎨 admin/           # Admin Dashboard (React + Vite + Tailwind)
+│   ├── src/
+│   │   ├── components/     # Reusable UI components
+│   │   │   ├── Login.jsx   # Admin authentication component
+│   │   │   ├── Navbar.jsx  # Navigation header with mobile responsiveness
+│   │   │   └── Sidebar.jsx # Navigation drawer with admin profile
+│   │   ├── pages/          # Main application pages
+│   │   │   ├── Add.jsx     # Product creation form
+│   │   │   ├── List.jsx    # Product management interface
+│   │   │   └── Orders.jsx  # Order management dashboard
+│   │   └── assets/         # Static assets and images
+│   └── package.json        # Dependencies and scripts
+│
+├── 🚀 backend/         # RESTful API Server (Node.js + Express + MongoDB)
+│   ├── config/             # Configuration files
+│   │   ├── cloudinary.js   # Image upload configuration
+│   │   └── mongodb.js      # Database connection setup
+│   ├── controllers/        # Business logic handlers
+│   │   ├── cartController.js    # Shopping cart operations
+│   │   ├── orderController.js   # Order processing logic
+│   │   ├── productController.js # Product CRUD operations
+│   │   └── userController.js    # User authentication & management
+│   ├── middleware/         # Custom middleware functions
+│   │   ├── adminAuth.js    # Admin authorization middleware
+│   │   ├── auth.js         # User authentication middleware
+│   │   └── multer.js       # File upload handling
+│   ├── models/             # MongoDB data schemas
+│   │   ├── orderModel.js   # Order data structure
+│   │   ├── productModel.js # Product data structure
+│   │   └── userModel.js    # User data structure
+│   └── routes/             # API endpoint definitions
+│       ├── cartRoute.js    # Cart management endpoints
+│       ├── orderRoute.js   # Order processing endpoints
+│       ├── productRoute.js # Product CRUD endpoints
+│       └── userRoute.js    # User authentication endpoints
+│
+├── 🛍️ frontend/        # Customer-Facing Store (React + Vite + Tailwind)
+│   ├── src/
+│   │   ├── components/     # Reusable UI components
+│   │   ├── context/        # React Context for state management
+│   │   ├── pages/          # Customer-facing pages
+│   │   └── assets/         # Product images and UI assets
+│   └── package.json        # Dependencies and scripts
+│
+└── 📝 README.md        # Project documentation
+```
 
-<<<<<<< HEAD
-- Product browsing with advanced filtering and search
-- Shopping cart and wishlist functionality
-- User authentication and profile management
-- Multiple payment options (COD, Stripe)
-- Order tracking and history
-- Mobile-responsive design
-
-### 👨‍💼 Admin Features
-
-- Secure admin authentication
-- Product management (CRUD operations)
-- Order processing and status updates
-- User management and analytics
-- Mobile-responsive admin interface
-
-### 🚀 Backend Features
-
-- RESTful API with Express.js
-- JWT authentication for users and admin
-- MongoDB database with Mongoose ODM
-- Cloudinary integration for image storage
-- Stripe payment processing
-- Comprehensive error handling and validation
-=======
 ## ✨ Features & Capabilities
 
 ### 🛒 Customer Frontend (`frontend/`)
@@ -225,90 +238,50 @@ npm install
 # Start development server
 npm run dev
 ````
->>>>>>> 1ef9f8dabe852fffe0cf8dc4acbddd2c8ade7a73
 
 ## 🛠️ Tech Stack
 
-**Frontend:** React 18.2.0, Vite, Tailwind CSS, React Router, Axios, React Toastify, Lucide React  
-**Backend:** Node.js 18+, Express.js, MongoDB, Mongoose, JWT, bcryptjs, Multer  
-**Cloud Services:** Cloudinary (images), Stripe (payments), Vercel (deployment)  
-**Development:** ES6+, Mobile-first design, PWA support, Code splitting
+### 🎨 Frontend Technologies
+- **⚛️ React 18.2.0** - Modern UI library with hooks and context
+- **⚡ Vite 5.0+** - Lightning-fast build tool and dev server
+- **🎨 Tailwind CSS 3.4+** - Utility-first CSS framework
+- **🧭 React Router DOM 6.8+** - Client-side routing and navigation
+- **📡 Axios 1.6+** - Promise-based HTTP client for API calls
+- **🔔 React Toastify 9.1+** - Toast notifications for user feedback
+- **🎯 Lucide React 0.263+** - Beautiful and consistent icon library
+- **📱 PWA Support** - Progressive Web App capabilities
 
-## 🚀 Quick Start
+### 🚀 Backend Technologies
+- **🟢 Node.js 18+** - JavaScript runtime environment
+- **🚂 Express.js 4.18+** - Fast and minimalist web framework
+- **🍃 MongoDB 6.0+** - NoSQL document database
+- **🦫 Mongoose 7.5+** - MongoDB object modeling for Node.js
+- **🔐 JWT (jsonwebtoken 9.0+)** - Secure token-based authentication
+- **🔒 bcryptjs 2.4+** - Password hashing and salting
+- **📁 Multer 1.4+** - Middleware for handling multipart/form-data
+- **☁️ Cloudinary 1.40+** - Cloud-based image and video management
+- **💳 Stripe 13.0+** - Payment processing platform
+- **🛡️ CORS 2.8+** - Cross-Origin Resource Sharing middleware
+- **✅ Validator 13.11+** - String validation and sanitization
 
-### Prerequisites
+### 🗄️ Database & Storage
+- **📊 MongoDB Atlas** - Cloud-hosted MongoDB service
+- **☁️ Cloudinary** - Image storage and optimization
+- **🔐 JWT Tokens** - Stateless authentication storage
 
-- Node.js (v18+), MongoDB, Cloudinary account, Stripe account
+### 🚀 Deployment & DevOps
+- **▲ Vercel** - Serverless deployment platform
+- **🌍 CDN Integration** - Global content delivery
+- **🔧 Environment Variables** - Secure configuration management
+- **📦 NPM/Yarn** - Package management
 
-### Environment Setup
+### 🎨 UI/UX Design
+- **🎨 Tailwind CSS** - Responsive utility-first styling
+- **📱 Mobile-First Design** - Progressive enhancement approach
+- **🪟 Glassmorphism Effects** - Modern visual design trends
+- **🎯 Lucide Icons** - Consistent iconography system
+- **⚡ Optimized Images** - WebP format with fallbacks
 
-<<<<<<< HEAD
-Create `.env` files in each directory:
-
-**Backend (`backend/.env`):**
-
-```env
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-ADMIN_EMAIL=admin@thetrendyclub.com
-ADMIN_PASSWORD=your_admin_password
-CLOUDINARY_NAME=your_cloudinary_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET_KEY=your_api_secret
-STRIPE_SECRET_KEY=your_stripe_secret
-PORT=4000
-```
-
-**Frontend & Admin (`.env`):**
-
-```env
-VITE_BACKEND_URL=http://localhost:4000
-VITE_STRIPE_PUBLIC_KEY=your_stripe_public_key
-```
-
-### Installation
-
-```bash
-# Clone repository
-git clone https://github.com/hangsheng0625/e-commernce.git
-cd TheTrendyClub
-
-# Backend
-cd backend && npm install && npm run server
-
-# Frontend (new terminal)
-cd frontend && npm install && npm run dev
-
-# Admin (new terminal)
-cd admin && npm install && npm run dev
-```
-
-**Local URLs:**
-
-- Frontend: http://localhost:3000
-- Admin: http://localhost:3001
-- Backend: http://localhost:4000
-
-## 🚀 Deployment
-
-Deploy to Vercel:
-
-```bash
-# Each directory separately
-cd backend && vercel --prod
-cd frontend && vercel --prod
-cd admin && vercel --prod
-```
-
-## 📄 License
-
-MIT License - Educational and portfolio use encouraged.
-
-## 👥 Contributors
-
-**Project Lead:** [hangsheng0625](https://github.com/hangsheng0625)  
-**Repository:** [e-commernce](https://github.com/hangsheng0625/e-commernce)
-=======
 ## 🔮 Future Enhancements
 
 - [ ] **Advanced Search:** Elasticsearch integration for better search
@@ -318,8 +291,6 @@ MIT License - Educational and portfolio use encouraged.
 - [ ] **Mobile App:** React Native mobile application
 - [ ] **Real-time Chat:** Customer support chat system
 - [ ] **AI Recommendations:** Machine learning product recommendations
->>>>>>> 1ef9f8dabe852fffe0cf8dc4acbddd2c8ade7a73
 
 ---
 
-⭐ **Star this repo if you found it helpful!**
